@@ -1,38 +1,36 @@
 import { useState, useEffect } from "react";
-//import axios from "axios";
+import axios from "axios";
 import "./Styling.css";
 
-const InfoBox = ({ users, setSelectedProduct, index }) => {
-  const handleCheckboxChange = (e, user) => {
+const InfoBox = ({ products, setSelectedProduct, index }) => {
+  const handleCheckboxChange = (e, product) => {
     setSelectedProduct((prevState) => {
       const newSelected = [...prevState];
       if (e.target.checked) {
-        newSelected[index] = user;
+        newSelected[index] = product;
       } else {
         newSelected[index] = null;
       }
       return newSelected;
     });
 
-    users.forEach((u) => {
-      if (u !== user) {
-        document.getElementById(`checkbox-${u.id}`).checked = false;
+    products.forEach((p) => {
+      if (p !== product) {
+        document.getElementById(`checkbox-${p.id}`).checked = false;
       }
     });
   };
 
   return (
     <div className="info-box">
-      {users.map((user) => (
-        <div key={user.id}>
-          <h2>{user.name}</h2>
-          <p>{user.id} {user.gender_field} {user.part} {user.color} {user.season} {user.brand} {user.price} {user.tag}</p>
-          <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100px", height: "100px" }}/>
-          <a href={user.rink} target="_blank" rel="noopener noreferrer">{user.name}</a>
+      {products.map((product) => (
+        <div key={product.id}>
+          <h2>{product.title}</h2>
+          <a href={product.url}>Link</a>
           <input
             type="checkbox"
-            id={`checkbox-${user.id}`}
-            onChange={(e) => handleCheckboxChange(e, user)}
+            id={`checkbox-${product.id}`}
+            onChange={(e) => handleCheckboxChange(e, product)}
           />
         </div>
       ))}
@@ -44,17 +42,16 @@ const CustomButton = ({ onClick, children }) => {
   return <button onClick={onClick}>{children}</button>;
 };
 
-const Styling = ({ users=[], setSelectedProducts }) => {
-  
-  const category = ['상의', '하의', '신발', '모자', '아우터', '부위테스트'];
-  //const [products, setProducts] = useState([]);
-  const [boxes, setBoxes] = useState([false, false, false, false, false, false]);
-  const [selectedProduct, setSelectedProduct] = useState([null, null, null, null, null, null]);
+const Styling = ({ setSelectedProducts }) => {
+  const category = ['hat', 'top', 'bottom', 'shoes'];
+  const [products, setProducts] = useState([]);
+  const [boxes, setBoxes] = useState([false, false, false, false]);
+  const [selectedProduct, setSelectedProduct] = useState([null, null, null, null]);
   //타이틀에 단어로 필터링해서 박스로 보여줌
   const filterProducts = (category) => {
-    return users.filter((user) => user.part && user.part.includes(category));
+    return products.filter((product) => product.title.toLowerCase().includes(category));
   };
-  
+
   const handleClick = (index) => {
     setBoxes((prevState) => {
       const newBoxes = [...prevState];
@@ -62,7 +59,7 @@ const Styling = ({ users=[], setSelectedProducts }) => {
       return newBoxes;
     });
   };
-  /*
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -74,7 +71,6 @@ const Styling = ({ users=[], setSelectedProducts }) => {
     };
     fetchData();
   }, []);
-  */
   useEffect(() => {
     setSelectedProducts(selectedProduct);
   }, [selectedProduct, setSelectedProducts]);
@@ -88,15 +84,13 @@ const Styling = ({ users=[], setSelectedProducts }) => {
           </CustomButton>
           {box && (
             <InfoBox
-              users={filterProducts(category[index] || [])}
+              products={filterProducts(category[index])}
               setSelectedProduct={setSelectedProduct}
               index={index}
             />
           )}
         </div>
       ))}
-       <div>
-    </div>
     </div>
   );
 };

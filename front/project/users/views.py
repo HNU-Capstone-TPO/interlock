@@ -8,7 +8,6 @@ from django.db.models import F
 from django.http import JsonResponse  # json형식으로 반환
 import os
 from neo4j import GraphDatabase
-import json
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -27,6 +26,7 @@ price = int
 
 def createform(request):
     query = request.POST.getlist('query[]')
+    button_value = request.POST.get('button')
 
     print(query)
 
@@ -55,7 +55,12 @@ def createform(request):
         elif q in brand:
             input5 = q
         elif q.isdigit():
+            print(type(q))
             input6 = q
+            min = int(q)-5000
+            max = int(q)+5000
+            print(q, min, max)
+            # input6 = q
         else:
             input8.append(q)
 
@@ -74,7 +79,7 @@ def createform(request):
     if input5:
         filters &= Q(brand__icontains=input5)
     if input6:
-        filters &= Q(price__lte=input6)
+        filters &= Q(price__lte=max) & Q(price__gte=min)
     if input8:
         for q in input8:
             users = User.objects.filter(tag__icontains=q)
@@ -85,7 +90,8 @@ def createform(request):
     users = User.objects.filter(filters).order_by('-score')
     serializer = UserSerializer(users, many=True)
 
-    data = serializer.data
+    datasearch = serializer.data
+
     first_result = serializer.data[0]
     gdbsearch = first_result['id']  # gdb서치용
 
@@ -101,14 +107,39 @@ def createform(request):
 
     names = [record.get('m.name') for record in result]
 
-    users1 = User.objects.filter(id__in=names)
-    serializer1 = UserSerializer(users1, many=True)
-    data1 = serializer1.data
+    usersnewbie = User.objects.filter(id__in=names)
+    serializernewbie = UserSerializer(usersnewbie, many=True)
 
-    data += data1
+    dataexpert = datasearch + serializernewbie.data
+
+    users1 = User.objects.filter(id__in=names, part__icontains="상의")[
+        :1]  # 1개 넣은건 newbie용 확인용 나중에 3으로 교체
+    users2 = User.objects.filter(id__in=names, part__icontains="하의")[:1]
+    users3 = User.objects.filter(id__in=names, part__icontains="신발")[:1]
+    users4 = User.objects.filter(id__in=names, part__icontains="모자")[:1]
+
+    serializer1 = UserSerializer(users1, many=True)
+    serializer2 = UserSerializer(users2, many=True)
+    serializer3 = UserSerializer(users3, many=True)
+    serializer4 = UserSerializer(users4, many=True)
+
+    datanewbie = datasearch + serializer1.data + \
+        serializer2.data + serializer3.data + serializer4.data
+
+    if button_value == 'E':   # expert
+        return render(request, 'folder/searchreal.html', {'users': dataexpert})
+    elif button_value == 'S':   # search
+        return render(request, 'folder/searchreal.html', {'users': datasearch})
+    else:       # 아무것도 안누르면 newbie가 기본값
+        return render(request, 'folder/searchreal.html', {'users': datanewbie})
+
+    # part_list = ["상의", "하의", "신발", "모자"]
+    # for part1 in part_list:
+    # users1 = User.objects.filter(id__in=names, part__icontains=part1)[:1]
+    # serializer = UserSerializer(users1, many=True)
+    # data += serializer.data
 
     # return JsonResponse({'users': data}) 나중에 json 값으로 바꿔서 프론트에 보내야함
-    return render(request, 'folder/searchreal.html', {'users': data})
 
 
 def other(request):
@@ -231,40 +262,31 @@ def createform1(request):  # 리액트용
         print(filters)
         serializer = UserSerializer(users, many=True)
 
-        if serializer.data[0] == None:
-            print("검색 결과가 없습니다.")
-        else:
-            data = serializer.data
-            first_result = serializer.data[0]
-            gdbsearch = first_result['id']  # gdb서치용
+        data = serializer.data
 
-            # users.update(score=0) #그냥 처음 불러올때 초기화 하는게 나을지도?
+        first_result = serializer.data[0]
+        gdbsearch = first_result['id']  # gdb서치용
 
-            driver = GraphDatabase.driver(
-                'bolt://localhost:7687', auth=('neo4j', '72901997'))
-            session = driver.session()
+        # users.update(score=0) #그냥 처음 불러올때 초기화 하는게 나을지도?
 
-            q = 'match (n:ID {name:%s})-[w:SET]->(m:ID) return m.name' % (gdbsearch)
-            results = session.run(q)
-            result = list(results)
+        driver = GraphDatabase.driver(
+            'bolt://localhost:7687', auth=('neo4j', '72901997'))
+        session = driver.session()
 
-            names = [record.get('m.name') for record in result]
+        q = 'match (n:ID {name:%s})-[w:SET]->(m:ID) return m.name' % (gdbsearch)
+        results = session.run(q)
+        result = list(results)
 
-            users1 = User.objects.filter(id__in=names)
-            serializer1 = UserSerializer(users1, many=True)
+        names = [record.get('m.name') for record in result]
 
-            data1 = serializer1.data
+        users1 = User.objects.filter(id__in=names)
+        serializer1 = UserSerializer(users1, many=True)
 
-            data += data1
+        data1 = serializer1.data
 
-            return JsonResponse({'users': data})
+        dataa = data + data1
+
+        return JsonResponse({'users': dataa})
 
     else:
         return JsonResponse({'result': 'error', 'message': 'Invalid request method'})
-
-
-def test(request):
-    message = request.GET.get('abc')
-    print(message)
-
-    return HttpResponse("안녕?")
