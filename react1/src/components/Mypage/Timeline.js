@@ -1,33 +1,6 @@
-/*import { useContext } from "react";
-import { SaveContext } from "../../contexts/SaveContext";
-
-
-
-const Timeline = () => {
-  const { save, setSave } = useContext(SaveContext); // SaveContext에서 save 배열과 setSave 함수 가져오기
-
-  const handleReset = () => {
-    setSave([]); // save 배열 초기화
-  };
-
-  return (
-    <div>
-      <h2>타임라인페이지</h2>
-      {save.map((item, index) => (
-        <p key={index}>{item}</p>
-        
-      ))}
-      <button onClick={handleReset}>Reset</button>
-    </div>
-  );
-};
-
-export default Timeline;*/
-
 import { useContext, useState, useEffect } from "react";
 import { SaveContext } from "../../contexts/SaveContext";
 import axios from "axios";
-/*import { navigate } from "@reach/router";*/
 import { useNavigate } from 'react-router-dom';
 
 const Timeline = () => {
@@ -68,14 +41,14 @@ const Timeline = () => {
 
   return (
     <div>
-      <h2>Timeline Page</h2>
+      <button onClick={handleReset}>Reset</button>
+      <h2>타임라인페이지</h2>
       {save.map((item, index) => (
         <div key={index}>
           <p>{item}</p>
           <button onClick={() => handleItemClick(item)}>Send to Server</button>
         </div>
       ))}
-      <button onClick={handleReset}>Reset</button>
     </div>
   );
 };

@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
-//import axios from "axios";
+import { useContext, useState, useEffect } from "react";
 import "./Styling.css";
+import { SaveItemContext } from "../../contexts/SaveItem";
 
 const InfoBox = ({ users, setSelectedProduct, index }) => {
+  const { users: savedUsers, setUsers: setSavedUsers } = useContext(SaveItemContext);
+
   const handleCheckboxChange = (e, user) => {
     setSelectedProduct((prevState) => {
       const newSelected = [...prevState];
@@ -21,6 +23,10 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
     });
   };
 
+  const handleSaveButtonClick = (user) => {
+    setSavedUsers((prevState) => [...prevState, user]);
+  };
+
   return (
     <div className="info-box">
       {users.map((user) => (
@@ -34,6 +40,7 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
             id={`checkbox-${user.id}`}
             onChange={(e) => handleCheckboxChange(e, user)}
           />
+          <button onClick={() => handleSaveButtonClick(user)}>찜</button>
         </div>
       ))}
     </div>
@@ -62,19 +69,7 @@ const Styling = ({ users=[], setSelectedProducts }) => {
       return newBoxes;
     });
   };
-  /*
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://127.0.0.1:8000/api/products/");
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-  */
+  
   useEffect(() => {
     setSelectedProducts(selectedProduct);
   }, [selectedProduct, setSelectedProducts]);

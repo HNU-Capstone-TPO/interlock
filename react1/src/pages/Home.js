@@ -5,11 +5,11 @@ import './Home.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { createContext } from 'react';
 import { SaveContext } from "../contexts/SaveContext";
 import { useContext } from "react";
 
-const MyContext = createContext();
+
+
 
 const Home = () => {
     
@@ -78,6 +78,14 @@ const Home = () => {
     saveToLocalStorage("save", newSave);
   };
 
+  const navi = () => {
+    navigate('/mypage/timeline');
+  }
+
+  const navi2 = () => {
+    navigate('/mypage/favorites');
+  }
+
   const Save = ({ save }) => {
     return (
       <div>
@@ -87,7 +95,7 @@ const Home = () => {
         ))}
       </div>
     );
-  };
+  }; //필요 없는거
     
     return (
       <SaveContext.Provider value={{ getSave }}>
@@ -95,7 +103,10 @@ const Home = () => {
             <div className="right">
                 <div className="helper" ><Helper tags={tags}/></div>
                 <div className="input" ><Input onSubmit={handleSubmit} getTags={getTags} getSave={getSave}/></div>
-                <Save save={save} />
+            </div>
+            <div className="left">
+                <button onClick={navi}>타임라인</button>
+                <button onClick={navi2}>찜목록</button>
             </div>
         </div>
       </SaveContext.Provider>
