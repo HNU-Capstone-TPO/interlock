@@ -266,6 +266,7 @@ def createform1(request):  # 리액트용
 
         first_result = serializer.data[0]
         gdbsearch = first_result['id']  # gdb서치용
+        print(gdbsearch)
 
         # users.update(score=0) #그냥 처음 불러올때 초기화 하는게 나을지도?
 
@@ -288,5 +289,33 @@ def createform1(request):  # 리액트용
 
         return JsonResponse({'users': dataa})
 
+    else:
+        return JsonResponse({'result': 'error', 'message': 'Invalid request method'})
+
+
+@api_view(['POST'])
+def inter(request):  # 리액트용
+    if request.method == 'POST':
+        interid = request.data.get('userId')
+        print(interid)
+
+        driver = GraphDatabase.driver(
+            'bolt://localhost:7687', auth=('neo4j', '72901997'))
+        session = driver.session()
+
+        q = 'match (n:ID {name:%s})-[w:SET]->(m:ID) return m.name' % (interid)
+        results = session.run(q)
+        result = list(results)
+
+        names = [record.get('m.name') for record in result]
+
+        print(names)
+
+        users1 = User.objects.filter(id__in=names)
+        serializer1 = UserSerializer(users1, many=True)
+
+        data1 = serializer1.data  # 추천 상품 출력할때 어떻게 출력할건지 정해야함
+
+        return JsonResponse({'users': data1})
     else:
         return JsonResponse({'result': 'error', 'message': 'Invalid request method'})

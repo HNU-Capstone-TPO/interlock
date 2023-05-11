@@ -73,7 +73,7 @@ const Home = () => {
   };
   
   const getSave = () => {
-    const newSave = [...save, tags];
+    const newSave = [tags, ...save];
     setSave(newSave);
     saveToLocalStorage("save", newSave);
   };
@@ -84,6 +84,10 @@ const Home = () => {
 
   const navi2 = () => {
     navigate('/mypage/favorites');
+  }
+
+  const navi3 = () => {
+    navigate('/mypage/interested-products')
   }
 
   const Save = ({ save }) => {
@@ -107,6 +111,7 @@ const Home = () => {
             <div className="left">
                 <button onClick={navi}>타임라인</button>
                 <button onClick={navi2}>찜목록</button>
+                <button onClick={navi3}>추천상품</button>
             </div>
         </div>
       </SaveContext.Provider>
