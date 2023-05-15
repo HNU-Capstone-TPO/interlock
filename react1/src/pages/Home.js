@@ -18,7 +18,7 @@ const Home = () => {
     const [submitFlag, setSubmitFlag] = useState(false);
     const { save, setSave } = useContext(SaveContext); // SaveContext에서 save 배열 가져오기
     
-;    //const [users, setUsers] = useState([]);
+;  
 
     const navigate = useNavigate();
 
@@ -90,17 +90,6 @@ const Home = () => {
     navigate('/mypage/interested-products')
   }
 
-  const Save = ({ save }) => {
-    return (
-      <div>
-        <h2>Saved Tags</h2>
-        {save.map((item, index) => (
-          <p key={index}>{item}</p>
-        ))}
-      </div>
-    );
-  }; //필요 없는거
-    
     return (
       <SaveContext.Provider value={{ getSave }}>
         <div className="home">
