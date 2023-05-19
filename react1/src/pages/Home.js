@@ -17,8 +17,6 @@ const Home = () => {
     const [query, setQuery] = useState([]);
     const [submitFlag, setSubmitFlag] = useState(false);
     const { save, setSave } = useContext(SaveContext); // SaveContext에서 save 배열 가져오기
-    
-;  
 
     const navigate = useNavigate();
 

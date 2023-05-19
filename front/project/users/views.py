@@ -311,11 +311,22 @@ def inter(request):  # 리액트용
 
         print(names)
 
-        users1 = User.objects.filter(id__in=names)
+        users1 = User.objects.filter(id__in=names, part__icontains="상의")[
+            :1]  # 1개 넣은건 newbie용 확인용 나중에 3으로 교체
+        users2 = User.objects.filter(id__in=names, part__icontains="하의")[:1]
+        users3 = User.objects.filter(id__in=names, part__icontains="신발")[:1]
+        users4 = User.objects.filter(id__in=names, part__icontains="모자")[:1]
+
         serializer1 = UserSerializer(users1, many=True)
+        serializer2 = UserSerializer(users2, many=True)
+        serializer3 = UserSerializer(users3, many=True)
+        serializer4 = UserSerializer(users4, many=True)
 
-        data1 = serializer1.data  # 추천 상품 출력할때 어떻게 출력할건지 정해야함
+        recommend = serializer1.data + serializer2.data + \
+            serializer3.data + serializer4.data
 
-        return JsonResponse({'users': data1})
+        print(recommend)
+
+        return JsonResponse({'users': recommend})
     else:
         return JsonResponse({'result': 'error', 'message': 'Invalid request method'})

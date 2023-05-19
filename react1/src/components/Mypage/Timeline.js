@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { SaveContext } from "../../contexts/SaveContext";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import "./Timeline.css";
 
 const Timeline = () => {
   const { save, setSave } = useContext(SaveContext);
@@ -49,21 +50,23 @@ const Timeline = () => {
   }, [submitFlag, selectedItem, navigate]);
 
   return (
-    <div>
+    <table>
       <button onClick={handleReset}>Reset</button>
       <h2>타임라인페이지</h2>
       {save.map((item, index) => (
-        <div key={index}>
-          {item.map((subItem, subIndex) => (
-            <div key={subIndex}>
-              <p>{subItem}</p>
-            </div>
+        <tr className="my-div2" key={index}>
+          <td className="aim-2">
+          {item.map((subItem) => (
+            <div className="my-divin">{subItem}</div>
           ))}
-      <button onClick={() => handleItemClick(item)}>Send to Server</button>
-      <button onClick={() => handleDeleteClick(index)}>X</button> {/* 삭제 버튼 추가 */}
-        </div>
+          </td>
+          <td className="button2">
+              <button onClick={() => handleItemClick(item)}>이동</button>
+              <button onClick={() => handleDeleteClick(index)}>X</button> {/* 삭제 버튼 추가 */}
+          </td>
+        </tr>
       ))}
-    </div>
+    </table>
   );
 };
 

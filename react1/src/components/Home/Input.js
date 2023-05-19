@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+/*import {useState, useEffect} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useContext } from "react";
@@ -62,9 +62,9 @@ const Input = ({setTags, onSubmit, tags}) => {
       </div>
     )
 }
-export default Input;
+export default Input;*/
 
-/*import {useState} from 'react'
+import {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useContext } from "react";
@@ -116,4 +116,4 @@ const Input = ({getTags, onSubmit}) => {
       </div>
     )
 }
-export default Input;*/ 
+export default Input;
