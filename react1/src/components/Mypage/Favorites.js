@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { SaveItemContext } from "../../contexts/SaveItem";
+import "./Favorites.css";
 
 const Favorites = () => {
   const { users, setUsers } = useContext(SaveItemContext);
@@ -18,19 +19,18 @@ const Favorites = () => {
 
 
   return (
-    <div>
-      <button onClick={handleReset1}>Reset</button>
-      <h2>찜 목록</h2>
-      {users.map((user) => (
-        <div key={user.id}>
-          <h3>{user.name}</h3>
-          <p>{user.brand} {user.price} {user.tag}</p>
-          <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100px", height: "100px" }}/>
-          <a href={user.link} target="_blank" rel="noopener noreferrer">{user.name}</a>
-          <button onClick={() => handleDeleteClick(user.id)}>X</button>
-        </div>
-      ))}
-    </div>
+    <table className="table-wrap">
+      <h2 className="table-title">찜 목록</h2>
+      <table className="my-div">
+        {users.map((user) => (
+          <td key={user.id}>
+            <h3>{user.name}</h3>
+            <p>{user.brand} {user.price} {user.tag}</p>
+            <button onClick={() => handleDeleteClick(user.id)}>X</button>
+          </td>
+        ))}
+      </table>
+    </table>
   );
 };
 

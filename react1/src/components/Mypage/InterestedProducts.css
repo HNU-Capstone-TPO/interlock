@@ -97,11 +97,9 @@
   background-color: #ffebb5; 
   border-radius: 16px;
   box-shadow: inset 0 0 8px #deb13a;
-  width: 800px; 
-  height: 400px;
-  padding: 0.5em;
-  left: 80px;
-  margin-bottom: 1em;
+  width: 690px; 
+  height: 300px;
+  margin-bottom: 10px;
 }
 
 
@@ -115,32 +113,70 @@
     background-color: #ffebb5; 
     border-radius: 16px;
     box-shadow: inset 0 0 8px #deb13a;
-    width: 400px; 
-    height: 400px;
-    padding: 0.5em;
-    margin-bottom: 1em;
+    width: 310px; 
+    height: 140px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
   }
+
+  .abc0 { 
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    width: 680px;
+    height: 285px;
+    top: 0;
+    left: 0;
+  }
+
   .abc { 
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
-    height: 200px;
+    margin: 2px;
+    width: 305px;
+    height: 137px;
     top: 0;
     left: 0;
   }
 
   .table-button-wrapper {
     position: relative;
-    border: solid 3px #000000;
+    border: solid 3px #ee0c0c;
   }
+
+  .table-button-wrapper0 {
+    position: relative;
+    border: solid 3px #ee0c0c;
+  }
+
+.table-button0 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 690px;
+    height: 300px;
+  } 
 
 .table-button {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
-    height: 200px;
+    width: 310px;
+    height: 140px;
   } 
+
+.imga0 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 33.333333333%;
+    height: 50%;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    padding: 1px;
+  }
 
 .imga {
   display: flex;
@@ -233,7 +269,8 @@
   display: flex;
   flex-wrap: wrap; /* flex-wrap 속성을 wrap으로 설정 */
   justify-content: space-between;
-  padding: 0.5em;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .longstring {       /*길면 자를까 했는데 일단 냅둠*/
@@ -250,4 +287,25 @@
   float: right;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.table-title {
+  display:flex;
+  border-bottom: solid 3px #2c22bb;
+  width: 100%; 
+  height: 60px;
+  flex-wrap: wrap; /* 추가 */
+  justify-content: center; /* 추가 */
+  align-items: center;
+  font-family: IBM Plex Sans KR-Light;
+  font-size: 35px;
+}
+
+.bottom-margin {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.wraptalbe{
+  padding-bottom: 160px;
 }

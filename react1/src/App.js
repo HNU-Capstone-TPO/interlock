@@ -7,20 +7,23 @@ import Layout from './components/Layout/Layout';
 import { SaveProvider } from "./contexts/SaveContext";
 import { SaveItemContextProvider } from "./contexts/SaveItem";
 import { SaveRecommendContextProvider} from './contexts/SaveRecommend';
+import { ProductContextProvider } from "./contexts/Product";
 
 const App = () => {
   return (
     <SaveProvider>
       <SaveItemContextProvider>
         <SaveRecommendContextProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/result" element={<Result />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/mypage/*" element={<Mypage />} />
-          </Route>
-        </Routes>
+          <ProductContextProvider>
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/result" element={<Result />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/mypage/*" element={<Mypage />} />
+              </Route>
+            </Routes>
+          </ProductContextProvider>
         </SaveRecommendContextProvider>
       </SaveItemContextProvider>
     </SaveProvider>

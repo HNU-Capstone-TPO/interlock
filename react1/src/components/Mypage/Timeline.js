@@ -50,15 +50,18 @@ const Timeline = () => {
   }, [submitFlag, selectedItem, navigate]);
 
   return (
-    <table>
-      <button onClick={handleReset}>Reset</button>
-      <h2>타임라인페이지</h2>
+    <table className="table-wrap">
+      {/*<button onClick={handleReset}>Reset</button>*/}
+      <h2 className="table-title">타임라인</h2>
       {save.map((item, index) => (
         <tr className="my-div2" key={index}>
-          <td className="aim-2">
-          {item.map((subItem) => (
-            <div className="my-divin">{subItem}</div>
-          ))}
+          <td className="keyward">검색어</td>
+          <td className="itemkeyward">
+            <td className="aim-2">
+            {item.map((subItem) => (
+              <div className="my-divin">{subItem}</div>
+            ))}
+            </td>
           </td>
           <td className="button2">
               <button onClick={() => handleItemClick(item)}>이동</button>

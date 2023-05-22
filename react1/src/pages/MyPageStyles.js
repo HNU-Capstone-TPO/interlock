@@ -6,6 +6,7 @@ const Container = styled.div`
   width: 100%;
   background-color: #f5f5f5;
   margin-top: 20px;
+  
 `;
 
 const Header = styled.header`
@@ -50,6 +51,7 @@ const Main = styled.main`
   margin-top: 60px;
   overflow-y: auto;
   height: calc(100vh - 80px);
+  
 `;
 
 const Sidebar = styled.div`
@@ -85,12 +87,12 @@ const Content = styled.div`
 
 const PageContainer = styled.div`
   background-color: white;
-  padding: 20px;
+  
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   margin-top: 60px;
-  width: 1000px;
-  max-width: 1000px;
+  margin-left: 30px;
+  width: 1030px;
+  border: solid 3px #000000;
 `;
 
 export {

@@ -29,8 +29,6 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 
   const handleSaveButtonClick = (user) => {
     setSavedUsers((prevState) => [user, ...prevState]);
-
-    
   }; /*이부분에서 user랑 ...prevState 바꾸면 역순으로 저장*/
 
   const handleSaveRecommend = (user) => {
