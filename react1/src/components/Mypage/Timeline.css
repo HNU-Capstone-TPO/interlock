@@ -43,11 +43,11 @@
     left: 0;
   }
 
-.button2 {
-    padding: 0.5em;
-    margin: 0.5em 0;
-    margin-right: 0.5em;
-    float: right;
+.Timeline-button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 134px;
   }
 
 .aim-2 {
@@ -67,7 +67,7 @@
   justify-content: center; /* 추가 */
   align-items: center;
   font-family: IBM Plex Sans KR-Light;
-  font-size: 3px;
+  font-size: 35px;
 }
 
 .table-wrap{
@@ -75,10 +75,10 @@
   width: 1024px;
 }
 
-.keyward{
+.Timeline-keyward{
   display: flex;
   justify-content: center;
-  margin-top: 37px;
+  align-items: center;
   width: 200px;
   height: 100%;
   font-size: 35px;

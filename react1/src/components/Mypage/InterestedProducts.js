@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { SaveRecommendContext } from '../../contexts/SaveRecommend';
 import "./InterestedProducts.css";
-import "./interstedPro.css"
 
 const InterestedProducts = () => {
   const { recommend } = useContext(SaveRecommendContext);
@@ -32,12 +31,12 @@ const InterestedProducts = () => {
               </td>
               {recommend[0].map((user) => (
               <td className="imga0" key={user.id}>
-                {user.part === "상의" && <img src="/img/Ad_1.jpg" alt="상의1" width="100%" height="100%"></img>}
-                {user.part === "하의" && <img src="/img/Ad_1.jpg" alt="하의1" width="100%" height="100%"></img>}
-                {user.part === "신발" && <img src="/img/Ad_1.jpg" alt="신발1" width="100%" height="100%"></img>}
-                {user.part === "모자" && <img src="/img/Ad_1.jpg" alt="모자1" width="100%" height="100%"></img>}
-                {user.part === "아우터" && <img src="/img/Ad_1.jpg" alt="아우터1" width="100%" height="100%"></img>}
-                {user.part === "악세사리" && <img src="/img/Ad_1.jpg" alt="악세사리1" width="100%" height="100%"></img>}
+                {user.part === "상의" && <img src="/img/상.png" alt="상의1" width="100%" height="100%"></img>}
+                {user.part === "하의" && <img src="/img/하.png" alt="하의1" width="100%" height="100%"></img>}
+                {user.part === "신발" && <img src="/img/신.png" alt="신발1" width="100%" height="100%"></img>}
+                {user.part === "모자" && <img src="/img/모.png" alt="모자1" width="100%" height="100%"></img>}
+                {user.part === "아우터" && <img src="/img/아.png" alt="아우터1" width="100%" height="100%"></img>}
+                {user.part === "악세사리" && <img src="/img/악.png" alt="악세사리1" width="100%" height="100%"></img>}
               </td>
               ))}
             </button>
