@@ -10,10 +10,7 @@ const SelectedList = ({ selectedProducts }) => {
   const handleSave = () => {
     if (name1) {
       setProduct((prevProduct) => {
-        const newProduct = [
-       ...prevProduct,
-          { name1: name1, products: selectedProducts },
-        ];
+        const newProduct = [{ name1: name1, products: selectedProducts }, ...prevProduct];
         return newProduct;
       });
     }

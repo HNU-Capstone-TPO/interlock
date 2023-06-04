@@ -6,7 +6,6 @@ const Container = styled.div`
   width: 100%;
   background-color: #f5f5f5;
   margin-top: 20px;
-  
 `;
 
 const Header = styled.header`
@@ -48,26 +47,32 @@ const Title = styled.h1`
 const Main = styled.main`
   display: flex;
   flex-grow: 1;
-  margin-top: 60px;
+  margin-top: 0px;
   overflow-y: auto;
   height: calc(100vh - 80px);
+  margin-left: 200px;
   
 `;
 
+//사이드 table
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px;
-  border-right: 1px solid #e6e6e6;
-  width: 180px;
+  border: 3px solid #e6e6e6;
+  width: 210px;
   margin-top: 80px;
+  height: 480px;
+  justify-content: center;
 `;
 
+// 사이드쪽 이름 넣는칸
 const SidebarItem = styled(Link)`
   font-weight: bold;
   color: black;
   font-size: 18px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-decoration: none;
   white-space: nowrap;
   display: inline-block;
@@ -87,12 +92,12 @@ const Content = styled.div`
 
 const PageContainer = styled.div`
   background-color: white;
-  
+  padding: 20px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   margin-top: 60px;
-  margin-left: 30px;
-  width: 1030px;
-  border: solid 3px #000000;
+  width: 1060px;
+  max-width: 1060px;
 `;
 
 export {

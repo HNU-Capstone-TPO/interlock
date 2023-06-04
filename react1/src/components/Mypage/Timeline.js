@@ -66,7 +66,7 @@ const Timeline = () => {
 
   return (
     <div className="timeline-container">
-      <table className="table-wrap">
+      <table className="timeline-table-wrap">
         {/*<button onClick={handleReset}>Reset</button>*/}
         <h2 className="table-title">타임라인</h2>
         <tbody>

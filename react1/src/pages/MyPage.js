@@ -19,15 +19,14 @@ import {
 const Mypage = () => {
   return (
     <>
-      <Title>마이 페이지</Title>
       <Container>
         <Main>
           <Sidebar>
-            <SidebarItem to="/mypage/myinfo">내 정보</SidebarItem>
-            <SidebarItem to="/mypage/timeline">타임라인</SidebarItem>
-            <SidebarItem to="/mypage/favorites">찜 목록</SidebarItem>
-            <SidebarItem to="/mypage/interested-products">추천 상품</SidebarItem>
-            <SidebarItem to="/mypage/userselectitem">유저 선택</SidebarItem>
+            <SidebarItem to="/mypage/myinfo">● 내 정보</SidebarItem>
+            <SidebarItem to="/mypage/timeline">● 타임라인</SidebarItem>
+            <SidebarItem to="/mypage/favorites">● 찜 목록</SidebarItem>
+            <SidebarItem to="/mypage/interested-products">● 추천 상품</SidebarItem>
+            <SidebarItem to="/mypage/userselectitem">● 유저 선택</SidebarItem>
           </Sidebar>
           <Content>
             <PageContainer>
