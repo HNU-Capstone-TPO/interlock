@@ -1,30 +1,43 @@
 
 .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  
 }
-.ad {
-    margin-right: 0%;
+.back{
+position: absolute;
+width: 2560px;
+height: 1920px;
+z-index: -1;
 }
-.right {
-    display: grid;
-    grid-template-rows: auto auto;
-    gap: 0.5rem;
-    margin-left: 0%;
+.center {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+  margin-left: 0%;
+}
+.input-container{
+display: flex;
+  justify-content: space-between;
+  width: 120%;  /* 적절한 크기로 조절합니다. */
+}
+.input {
+  width: 100%;
 }
 .textfield-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  .textfield-wrapper > a {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.textfield-wrapper > a {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

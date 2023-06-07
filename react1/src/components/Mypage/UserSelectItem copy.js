@@ -19,13 +19,6 @@ const UserSelectItem = () => {
     }
   };
 
-
-  const handleScoreIncrease = (index) => {
-    const newProduct = [...product];
-    newProduct[index].score++;
-    setProduct(newProduct);
-  };
-
   const handlePrevClick = () => {
     setCurrentPage(currentPage - 1);
   };
@@ -34,7 +27,7 @@ const UserSelectItem = () => {
     setCurrentPage(currentPage + 1);
   };
 
-  const itemsPerPage = 6;
+  const itemsPerPage = 1;
 
   const pageItems = product.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
@@ -60,8 +53,8 @@ const UserSelectItem = () => {
                   <img className="UserSelectItem-imgmain1" src="/img/아우터.png" alt="아우터" width="100%" height="100%"></img>
                   <img className="UserSelectItem-imgmain1" src="/img/악세.png" alt="악세사리" width="100%" height="100%"></img>
                 </td>
-                {users.products.filter((item) => item !== null).map((item, index1) => (
-                  <tr className="UserSelectItem-imga" key={index1}>
+                {users.products.filter((item) => item !== null).map((item, index) => (
+                  <tr className="UserSelectItem-imga" key={index}>
                     <td>
                       {item.part === "상의" && <img src="/img/상.png" alt="상의1" width="100%" height="100%"></img>}
                       {item.part === "하의" && <img src="/img/하.png" alt="하의1" width="100%" height="100%"></img>}
@@ -77,15 +70,6 @@ const UserSelectItem = () => {
             </td>
             <td className="UserSelectItem-keyward">
               작성자: {users.name1}
-            </td>
-            <td className="UserSelectItem-keyward">
-              코멘트: {users.comment1}
-            </td>
-            <td key={index}>
-              <button onClick={() => handleScoreIncrease(((currentPage-1)*itemsPerPage+index))}>save</button>
-            </td>
-            <td className="UserSelectItem-keyward">
-              코멘트: {users.score}
             </td>
           </table>
         ))}
@@ -124,11 +108,11 @@ const UserSelectItem = () => {
       </div>
       <td className="UserSelectItem-pagination">
         <button className="UserSelectItem-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
-          <img className="UserSelectItem-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
+        <img className="UserSelectItem-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
         </button>
         <td className="UserSelectItem-pagination-number">{currentPage}</td>
         <button className="UserSelectItem-pagination-click" onClick={handleNextClick} disabled={(product.length < (currentPage * itemsPerPage)+1)}>
-          <img className="UserSelectItem-pagination-animation" src="/img/right.png" alt="awsdf" width="30px" height="30px"></img>
+        <img className="UserSelectItem-pagination-animation" src="/img/right.png" alt="awsdf" width="30px" height="30px"></img>
         </button>
       </td>
       <button onClick={handleReset}>초기화</button>

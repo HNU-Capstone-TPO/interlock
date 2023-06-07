@@ -9,7 +9,7 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
     const [start, setStart] = useState(0);
     const [check, setCheck] = useState(false); 
     const [isDisabled, setIsDisabled] = useState(false);
-    //const [button, setButton] = useState('');
+    //const [button, setButton] = useState('N');
     const [btnActive, setBtnActive] = useState("");
     const {getSave} = useContext(SaveContext);
 
@@ -103,9 +103,9 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
             >
               </TextField>
                 
-                    <Button style={{marginLeft: 'auto'}} disabled={!isDisabled} variant="contained" onClick={handleSubmit}>
-                    입력
-                    </Button>
+                <Button style={{marginLeft: 'auto'}} disabled={!isDisabled} variant="contained" onClick={handleSubmit}>
+                  입력
+                </Button>
       </div>
     )
 }

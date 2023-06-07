@@ -1,6 +1,6 @@
-.table-title {
+.favorites-table-title {
     display:flex;
-    border-bottom: solid 3px #2c22bb;
+    border-bottom: solid 1px #2c22bb;
     width: 100%; 
     height: 60px;
     flex-wrap: wrap; /* 추가 */
@@ -8,9 +8,14 @@
     align-items: center;
     font-family: IBM Plex Sans KR-Light;
     font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .favorites-table-titlea{
+    height: 70px;
   }
 
-.table-wrap{
+.favorites-table-wrap{
     display: block;
     width: 1024px;
   }
@@ -28,12 +33,11 @@
     height: 100%;
   }
  
-  .my-div2 {
+  .favorites-my-div2 {
     display: flex;
     padding-bottom : 10px;
     margin-top: 10px;
     flex-wrap: wrap;
-    font-weight: bold;
     color: #000000;
     background: #FFF;
     border-bottom: solid 1px #000000;
@@ -43,13 +47,23 @@
     left: 0;
   }
 
-  .keyward{
+  .favorites-keyward{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
     height: 100%;
-    font-size: 35px;
+    background-color: #ffffff;
+  }
+
+  .favorites-keywarda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 70%;
+    border-right: 3px solid #e6e6e6;
+    
   }
 
   .Favorites-itemkeyward {
@@ -61,7 +75,18 @@
     border: solid 1px #FFF;
   }  
 
-  .Favorites-my-divin {
+  .Favorites-my-divin-name {
+    display: flex;
+    margin: 1px;
+    font-weight: bold;
+    width: auto;
+    height: 70px;
+    align-items: center;
+    font-size:25px;
+    font-family: IBM Plex Sans KR-Light;
+  }
+
+  .Favorites-my-divin-price {
     display: flex;
     margin: 1px;
     font-weight: bold;
@@ -82,9 +107,67 @@
     align-items: center;
   }
 
+  .Favorites-img{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 0px #000000;
+  }
+
+  .Favorites-button2a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 134px;
+    height: 70%;
+    border-left: 3px solid #e6e6e6;
+  }
+
   .Favorites-delete {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 134px;
+    height: 100%;
+    background-color: #ffffff;
+  }
+
+  .Favorites-pagination{
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Favorites-pagination-number{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .Favorites-pagination-click{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 0px;
+    background-color: #f9f9f9;
+  }
+
+  .Favorites-pagination-animation:hover{
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
   }

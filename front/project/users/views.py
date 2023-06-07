@@ -191,7 +191,7 @@ def createform1(request):  # 리액트용
         print(query_data)
 
         aaa = User.objects.all()
-        aaa.update(score=0)
+        # aaa.update(score=0)
 
         query1 = []
         for item in query_data:
@@ -252,7 +252,8 @@ def createform1(request):  # 리액트용
         if input8:
             for q in input8:
                 users = User.objects.filter(tag__icontains=q)
-                users.update(score=F('score') + 1)
+                if users:
+                    users.update(score=F('score') + 1)
 
             filters |= Q(tag__icontains=input8)
             print(filters)
@@ -263,6 +264,8 @@ def createform1(request):  # 리액트용
         serializer = UserSerializer(users, many=True)
 
         data = serializer.data
+
+        print(data)
 
         first_result = serializer.data[0]
         gdbsearch = first_result['id']  # gdb서치용
@@ -295,6 +298,79 @@ def createform1(request):  # 리액트용
 
 @api_view(['POST'])
 def inter(request):  # 리액트용
+    if request.method == 'POST':
+        interid = request.data.get('userId')
+        print(interid)
+
+        driver = GraphDatabase.driver(
+            'bolt://localhost:7687', auth=('neo4j', '72901997'))
+        session = driver.session()
+
+        q = f"MATCH (a:Node {{name: {interid}}})-[link:link]-(b:Set) RETURN count(b)"
+        setcount = session.run(q)
+        if setcount == 1:  # 아이템이 중복이 아닐 때. 즉, 연결된 set가 하나일 때.
+            q = f"""
+                MATCH (a:Node {{name: {interid}}})-[link:link]-(b:Set)
+                WITH a, b
+                MATCH (b)-[link:link]-(c:Node)
+                WHERE c <> a
+                WITH collect(c) AS nodes
+                UNWIND nodes AS c
+                MATCH (c)-[link:link]-(d:Set)
+                WITH d
+                ORDER BY d.view ASC
+                LIMIT 1
+                SET d.view = d.view + 1
+                WITH d
+                MATCH (d)-[link:link]-(e:Node)
+                RETURN e.name, d.set
+                """
+        else:  # 아이템이 중복일 때. 즉, 연결된 set가 여러개일 때.
+            q = f"""
+                MATCH (a:Node {{name: {interid}}})-[link:link]-(b:Set)
+                WITH a, b
+                ORDER BY b.view ASC
+                LIMIT 1
+                SET b.view = b.view + 1
+                WITH a, b
+                MATCH (b)-[link:link]-(e:Node)
+                RETURN e.name, b.set
+                """
+        results = session.run(q)
+        result = list(results)
+
+        names = [record.get('e.name') for record in result]
+        setnum_total = [record.get('b.set') for record in result]
+        setnum = list(set(setnum_total))
+        print("setnum:", setnum)
+        print(names)
+
+        users1 = User.objects.filter(id__in=names, part__icontains="상의")[
+            :1]  # 1개 넣은건 newbie용 확인용 나중에 3으로 교체
+        users2 = User.objects.filter(id__in=names, part__icontains="하의")[:1]
+        users3 = User.objects.filter(id__in=names, part__icontains="신발")[:1]
+        users4 = User.objects.filter(id__in=names, part__icontains="모자")[:1]
+        users5 = User.objects.filter(id__in=names, part__icontains="아우터")[:1]
+        users6 = User.objects.filter(id__in=names, part__icontains="포인트")[:1]
+        serializer1 = UserSerializer(users1, many=True)
+        serializer2 = UserSerializer(users2, many=True)
+        serializer3 = UserSerializer(users3, many=True)
+        serializer4 = UserSerializer(users4, many=True)
+        serializer5 = UserSerializer(users5, many=True)
+        serializer6 = UserSerializer(users6, many=True)
+
+        recommend = serializer1.data + serializer2.data + \
+            serializer3.data + serializer4.data + serializer5.data + serializer6.data
+
+        print("추천추천추천", recommend)
+        print("setnum이 뭘까 : ", setnum)
+        return JsonResponse({'users': recommend, 'setnum': str[setnum]})
+    else:
+        return JsonResponse({'result': 'error', 'message': 'Invalid request method'})
+
+
+@api_view(['POST'])
+def inter1(request):  # 리액트용
     if request.method == 'POST':
         interid = request.data.get('userId')
         print(interid)

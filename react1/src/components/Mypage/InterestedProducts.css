@@ -31,15 +31,15 @@
 
   .InterestedProducts-table-detail {             /* 아이템 눌렀을때 보이는 상세창 */
     position: absolute;
-    top : 80px;
-    left : -100px;
+    top : 100px;
+    left : 70px;
     border: 3px solid #295fb7;
     background-color: #ffffff; 
     width: 500px; 
     height: 700px;
     margin: 1em 0;
     margin-left:35%;
-    z-index: 5;
+    z-index: 12;
     font-family: IBM Plex Sans KR-Light;
   }
 
@@ -52,7 +52,7 @@
     height: 130px;
   }
 
-.table-detail-img {     /*상세보기 이미지*/
+.interested-table-detail-img {     /*상세보기 이미지*/
   display: flex;
   width: 100px;
   height: 100px;
@@ -61,7 +61,7 @@
   margin-right: 10px;
 }
 
-.table-set
+.interested-table-set
 {
   display: flex;
   border: 3px solid #b5dcff;
@@ -70,7 +70,7 @@
   margin-right: 10px;
 }
 
-.table-detail-name {    /*상세보기 이름*/
+.interested-table-detail-name {    /*상세보기 이름*/
   display: flex; 
   width: 250px;
   height: 100%;
@@ -79,7 +79,7 @@
   padding: 0.5em;
 }
 
-  .table-detail-price {   /*상세보기 가격*/
+.interested-table-detail-price {   /*상세보기 가격*/
   display: flex;
   width: 50px;
   height: 100%;
@@ -88,7 +88,7 @@
   padding: 0.5em;
 }
 
-.table-detail-rink {     /*상세보기 이미지*/
+.interested-table-detail-rink {     /*상세보기 이미지*/
   display: flex;
   width: 100px;
   height: 100%;
@@ -96,23 +96,20 @@
   align-items: center;
 }
 
-.table-div0 {
+.interested-table-div0 {
   position: relative;
   display: flex; /* display 속성을 flex로 설정 */
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
-  border: 1px solid #ffebb5; 
-  background-color: #ffebb5; 
-  border-radius: 16px;
-  box-shadow: inset 0 0 8px #deb13a;
-  width: 690px; 
-  height: 300px;
-  margin-bottom: 10px;
+  background-color: #e6e6e6; 
+  border: 2px solid #000000;
+  width: 700px; 
+  height: 330px;
 }
 
 
 
-.table-div1 {
+.interested-table-div1 {
     position: relative;
     display: flex; /* display 속성을 flex로 설정 */
     justify-content: center; /* 수평 가운데 정렬 */
@@ -121,6 +118,7 @@
     background-color: #ffebb5; 
     border-radius: 16px;
     box-shadow: inset 0 0 8px #deb13a;
+    background-color: #a882e9;
     width: 310px; 
     height: 140px;
     margin-left: 40px;
@@ -128,19 +126,19 @@
     margin-top: 40px;
   }
 
-  .abc0 { 
+  .interested-abc0 { 
     position: absolute;
     display: flex;
     flex-wrap: wrap;
     margin: 5px;
-    width: 680px;
-    height: 285px;
-    top: 0;
-    left: 0;
+    width: 685px;
+    height: 305px;
+    top: -3px;
+    left: -1px;
     background-color: #ffffff;
   }
 
-  .abc { 
+  .interested-abc { 
     position: absolute;
     display: flex;
     flex-wrap: wrap;
@@ -151,43 +149,43 @@
     left: 0;
   }
 
-  .table-button-wrapper {
+  .interested-table-button-wrapper {
     position: relative;
-    border: solid 3px #ee0c0c;
   }
 
-  .table-button-wrapper0 {
+  .interested-table-button-wrapper0 {
     position: relative;
-    border: solid 3px #ee0c0c;
   }
 
-.table-button0 {
+.interested-table-button0 {
     display: flex;
     flex-wrap: wrap;
     width: 690px;
-    height: 300px;
+    height: 305px;
   } 
 
-.table-button {
+.interested-table-button {
     display: flex;
     flex-wrap: wrap;
     width: 310px;
     height: 140px;
   } 
 
-.imga0 {
+.interested-imga0 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 33.333333333%;
-    height: 50%;
+    width: 225px;
+    margin: 2px;
+    height: 150px;
     z-index: 1;
     top: 0px;
     left: 0px;
     padding: 1px;
+    border: 1px solid #000000;
   }
 
-.imga {
+.interested-imgaa {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -198,7 +196,7 @@
   left: 0px;
 }
 
-.imgmain1 {
+.interested-imgmain1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -274,7 +272,7 @@
     align-items: center;
 }
 
-.set-buttons{   /*클릭하는 버튼용*/
+.interested-set-buttons{   /*클릭하는 버튼용*/
   display: flex;
   flex-wrap: wrap; /* flex-wrap 속성을 wrap으로 설정 */
   justify-content: space-between;
@@ -292,7 +290,7 @@
   height: 20px;
 }
 
-.Xbutton {    /* 닫기 버튼용 */
+.interested-Xbutton {    /* 닫기 버튼용 */
   display: flex;
   width: 30px;
   height: 30px;
@@ -300,9 +298,9 @@
   border: #ffffff;
 }
 
-.table-title {
+.interested-table-title {
   display:flex;
-  border-bottom: solid 3px #2c22bb;
+  border-bottom: solid 1px #223cbb;
   width: 100%; 
   height: 60px;
   flex-wrap: wrap; /* 추가 */
@@ -310,6 +308,11 @@
   align-items: center;
   font-family: IBM Plex Sans KR-Light;
   font-size: 35px;
+  font-weight: bold;
+}
+
+.interested-table-titlea{
+  height: 70px;
 }
 
 .bottom-margin {
@@ -317,11 +320,11 @@
   margin-bottom: 50px;
 }
 
-.wraptalbe{
-  padding-bottom: 160px;
+.interested-wraptable{
+  padding-bottom: 0px;
 }
 
-.main{
+.interested-main{
   display: flex;
   width: 100%;
   height: 100%;
@@ -329,7 +332,7 @@
   position: relative;
 }
 
-.mainbackone{
+.interested-mainbackone{
   display: flex;
   position: absolute;
   width: 50px;
@@ -339,7 +342,7 @@
   border-bottom-left-radius: 70px;
 }
 
-.mainbacktwo{
+.interested-mainbacktwo{
   display: flex;
   position: absolute;
   width: 50px;
@@ -351,7 +354,7 @@
 }
 
 
-.mainbackb{
+.interested-mainbackb{
   display: flex;
   position: absolute;
   width: 100px;
@@ -361,15 +364,17 @@
   margin-top: 10px;
 }
 
-.mainbacka{
+.interested-mainbacka{
   display: flex;
-  width: 225px;
-  height: 140px;
-  z-index: 8;
+  width: 225.5px;
+  height: 150px;
+  z-index: 0;
   position: relative;
+  border: 1px solid #000000;
+  margin: 1px;
 }
 
-.mainback1{
+.interested-mainback1{
   display: flex;
   position: absolute;
   width: 100%;
@@ -389,7 +394,7 @@
   background-color: #a12929;
 }
 
-.main:hover .mainback1 {
+.interested-main:hover .interested-mainback1 {
   display: block;
 }
 

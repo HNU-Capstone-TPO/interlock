@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import styled, { keyframes } from 'styled-components';
+import "./MyInfo.css";
 
 const fadeIn = keyframes`
   0% {
@@ -14,6 +15,8 @@ const fadeIn = keyframes`
 const StyledCard = styled(Card)`
   width: 50%;
   margin: 0 auto;
+  margin-top : 15px;
+  margin-bottom : 15px;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   animation: ${fadeIn} 0.5s ease-out;
@@ -54,36 +57,37 @@ const MyInfo = () => {
 
   return (
     <StyledCard>
-      <Card.Header>
-        <h3>내 정보 페이지</h3>
-      </Card.Header>
+        <div className="myinfo-title">내 정보</div>
       <StyledListGroup variant="flush">
         <ListGroup.Item>
-          <strong>성별:</strong> {user.a1}
+          <strong>성별 :</strong> {user.a1}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>키:</strong> {user.a2}
+          <strong>키 :</strong> {user.a2}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>몸무게:</strong> {user.a3}
+          <strong>몸무게 :</strong> {user.a3}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>체형:</strong> {user.a4}
+          <strong>연령대 :</strong> {user.a9}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>피부톤:</strong> {user.a5}
+          <strong>체형 :</strong> {user.a4}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>직업:</strong> {user.a6}
+          <strong>피부톤 :</strong> {user.a5}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>선호 색상:</strong> {user.a7}
+          <strong>직업 :</strong> {user.a6}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>선호 취향:</strong> {user.a8}
+          <strong>선호 색상 :</strong> {user.a7}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>선호 핏:</strong> {user.a9}
+          <strong>선호 취향 :</strong> {user.a8}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>선호 핏 :</strong> {user.a9}
         </ListGroup.Item>
       </StyledListGroup>
     </StyledCard>
