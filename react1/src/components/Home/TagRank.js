@@ -19,13 +19,22 @@ const TagRank = () => {
     const sortedTags = Object.entries(tagFrequency).sort((a, b) => b[1] - a[1]);
   
     return (
-      <div>
-        <h1>검색 랭킹</h1>
-        <ol>
-        {sortedTags.map(([tag], index) => (
-            <li>{tag}</li>
+      <div style={{ border: "1px solid black", width: "300px", borderRadius: "5px", opacity: 0.9 }}>
+        <div style={{textAlign: "center",height: '50px', fontSize: "25px", backgroundColor: 'black', color: 'white', padding: '5px', opacity: 0.9}}>
+          <p>검색 랭킹</p>
+        </div>
+        <div style={{backgroundColor: 'white', padding: '20px'}}>
+        <ul style={{ listStyleType: "none", padding: "0"  }}>
+        {sortedTags.slice(0, 7).map(([tag], index) => (
+            <li key={index} style={{ fontSize: '18px', marginBottom: '10px'}}>
+            <span>
+                {index+1}.&nbsp;
+            </span>
+            {tag}
+        </li>
         ))}
-        </ol>
+        </ul>
+        </div>
       </div>
     );
   };

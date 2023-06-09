@@ -49,142 +49,61 @@ const InterestedProducts = () => {
                   <img className="interested-mainbackb" src="/img/logo.png" alt="아우터" width="90%" height="90%"></img>
                 </td>
               </td>
-              {recommend[0].products.filter((user) => user !== null).map((user, index) => (
-                <td className="interested-imga0" key={index}>
-                  {user.part === "상의" && (
-                    <div className="interested-main">
-                      <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
-                      <img src={user.image} alt="6000" width="100%" height="100%"></img> 
-                      <img className="interested-mainbacktwo" src="/img/상의로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                  )}
-                  {user.part === "하의" && (
-                    <div className="interested-main">
-                      <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
-                      <img src={user.image} alt="6000" width="100%" height="100%"></img> 
-                      <img className="interested-mainbacktwo" src="/img/하의로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                  )}
-                  {user.part === "신발" && (
-                    <div className="interested-main">
-                      <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
-                      <img src={user.image} alt="6000" width="100%" height="100%"></img> 
-                      <img className="interested-mainbacktwo" src="/img/신발로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                  )}
-                  {user.part === "모자" && (
-                    <div className="interested-main">
-                      <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
-                      <img src={user.image} alt="6000" width="100%" height="100%"></img> 
-                      <img className="interested-mainbacktwo" src="/img/모자로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                  )}
-                  {user.part === "아우터" && (
-                    <div className="interested-main">
-                      <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name} {user.part}</button>
-                      <img src={user.image} alt="6000" width="100%" height="100%"></img> 
-                      <img className="interested-mainbacktwo" src="/img/아우터로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                  )}
-                  {user.part === "악세사리" && (
-                    <div className="interested-main">
-                      <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
-                      <img src={user.image} alt="6000" width="100%" height="100%"></img> 
-                      <img className="interested-mainbacktwo" src="/img/악세사리로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                  )}
-                </td>
-              ))}
+                  {recommend[0].products.filter((user) => user!== null).map((user, index) => (
+                    <td className="interested-imga0" key={index}>
+                      {user.part === "상의" && (
+                        <div className="interested-main">
+                          <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
+                          <img src="/상품/4.PNG" alt="6000" width="100%" height="100%"></img> 
+                          <img className="interested-mainbacktwo" src="/img/상의.PNG" alt="1" width="50%" height="50%"></img>
+                          <div></div>
+                        </div>
+                      )}
+                      {user.part === "하의" && (
+                        <div className="interested-main">
+                          <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
+                          <img src="/상품/4.PNG" alt="6000" width="100%" height="100%"></img> 
+                          <img className="interested-mainbackone" src="/img/상의.PNG" alt="1" width="50%" height="50%"></img>
+                          <div></div>
+                        </div>
+                      )}
+                      {user.part === "신발" && <img src="/img/신.png" alt="신발1" width="100%" height="100%"></img>}
+                      {user.part === "모자" && <img src="/img/모.png" alt="모자1" width="100%" height="100%"></img>}
+                      {user.part === "아우터" && <img src="/img/아.png" alt="아우터1" width="100%" height="100%"></img>}
+                      {user.part === "악세사리" && <img src="/img/악.png" alt="악세사리1" width="100%" height="100%"></img>}
+                    </td>
+                  ))}
             </td>
           </div>
         </td>
-        {recommend.slice(1, 5).filter((users) => users !== null).map((users, index) => (
-          <td className="interested-table-div1" key={index+1}>
-            <div className="interested-table-button-wrapper">
-              <button className="interested-table-button" onClick={() => handleSetClick(index+1)}>
-                <td className="interested-abc">
-                  <img className="interested-imgmain1" src="/img/logo.png" alt="상의" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/logo.png" alt="하의" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/logo.png" alt="신발" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/logo.png" alt="모자" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/logo.png" alt="아우터" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/logo.png" alt="악세사리" width="100%" height="100%"></img>
-                </td>
-                <td className="interested-abc1">
-                {users.products.filter((item) => item !== null).map((item) => (
-                  <td className="interested-imgaa" key={item.id}>
-                    {item.part === "상의" && (
-                    <div className="interested-main1">
-                      <img src={item.image} alt="상의" width="100%" height="100%"></img>
-                      <img className="interested-mainbackone" src="/img/상의로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                    )}
-                    {item.part === "하의" && (
-                    <div className="interested-main1">
-                      <img src={item.image} alt="하의" width="100%" height="100%"></img>
-                      <img className="interested-mainbackone" src="/img/하의로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                    )}
-                    {item.part === "신발" && (
-                    <div className="interested-main1">
-                      <img src={item.image} alt="신발" width="100%" height="100%"></img>
-                      <img className="interested-mainbackone" src="/img/신발로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                    )}
-                    {item.part === "모자" && (
-                    <div className="interested-main1">
-                      <img src={item.image} alt="모자" width="100%" height="100%"></img>
-                      <img className="interested-mainbackone" src="/img/모자로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                    )}
-                    {item.part === "아우터" && (
-                    <div className="interested-main1">
-                      <img src={item.image} alt="아우터" width="100%" height="100%"></img>
-                      <img className="interested-mainbackone" src="/img/아우터로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                    )}
-                    {item.part === "악세사리" && (
-                    <div className="interested-main1">
-                      <img src={item.image} alt="악세사리" width="100%" height="100%"></img>
-                      <img className="interested-mainbackone" src="/img/악세사리로고.PNG" alt="1" width="50%" height="50%"></img>
-                    </div>
-                    )}
-                  </td>
-                ))}
-                </td>
-              </button>
-
-            </div>
-          </td>
-        ))}
-        {/*{recommend[1].products.filter((user) => user !== null).map((user, index) => (
+        {recommend.slice(1, 5).filter((item) => item !== null).map((users, index) => (
           <td className="interested-table-div1" key={index+1}>
             <div className="interested-table-button-wrapper">
               <td>
               <button className="interested-table-button" onClick={() => handleSetClick(index+1)}>
                 <td className="interested-abc">
-                  <img className="interested-imgmain1" src="/img/상의로고.png" alt="상의" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/하의로고.png" alt="하의" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/신발로고.png" alt="신발" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/모자로고.png" alt="모자" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/아우터로고.png" alt="아우터" width="100%" height="100%"></img>
-                  <img className="interested-imgmain1" src="/img/악세사리로고.png" alt="악세사리" width="100%" height="100%"></img>
+                  <img className="interested-imgmain1" src="/img/상의.png" alt="상의" width="100%" height="100%"></img>
+                  <img className="interested-imgmain1" src="/img/하의.png" alt="하의" width="100%" height="100%"></img>
+                  <img className="interested-imgmain1" src="/img/신발.png" alt="신발" width="100%" height="100%"></img>
+                  <img className="interested-imgmain1" src="/img/모자.png" alt="모자" width="100%" height="100%"></img>
+                  <img className="interested-imgmain1" src="/img/아우터.png" alt="아우터" width="100%" height="100%"></img>
+                  <img className="interested-imgmain1" src="/img/악세.png" alt="악세사리" width="100%" height="100%"></img>
                 </td>
-                {user.map((item) => (
-                  <td className="interested-imgaa" key={item.id}>
-                    {item.part === "상의" && <img src="/img/상의1.png" alt="상의1" width="100%" height="100%"></img>}
-                    {item.part === "하의" && <img src="/img/하의1.png" alt="하의1" width="100%" height="100%"></img>}
-                    {item.part === "신발" && <img src="/img/신발1.png" alt="신발1" width="100%" height="100%"></img>}
-                    {item.part === "모자" && <img src="/img/모자1.png" alt="모자1" width="100%" height="100%"></img>}
-                    {item.part === "아우터" && <img src="/img/아우터1.png" alt="아우터1" width="100%" height="100%"></img>}
-                    {item.part === "악세사리" && <img src="/img/악세사리1.png" alt="악세사리1" width="100%" height="100%"></img>}
+                {users.products.filter((item) => item !== null).map((user, index) => (
+                  <td className="interested-imgaa" key={index}>
+                    {user.part === "상의" && <img src="/img/상의1.png" alt="상의1" width="100%" height="100%"></img>}
+                    {user.part === "하의" && <img src="/img/하의1.png" alt="하의1" width="100%" height="100%"></img>}
+                    {user.part === "신발" && <img src="/img/신발1.png" alt="신발1" width="100%" height="100%"></img>}
+                    {user.part === "모자" && <img src="/img/모자1.png" alt="모자1" width="100%" height="100%"></img>}
+                    {user.part === "아우터" && <img src="/img/아우터1.png" alt="아우터1" width="100%" height="100%"></img>}
+                    {user.part === "악세사리" && <img src="/img/악세사리1.png" alt="악세사리1" width="100%" height="100%"></img>}
                   </td>
                 ))}
               </button>
               </td> 
             </div>
           </td>
-        ))}*/}
+        ))}
         {selectedSet !== null && (
         <div className="InterestedProducts-table-detail">               
           <table>
@@ -218,7 +137,7 @@ const InterestedProducts = () => {
         </div>
       )}
       </div>
-      {/*<button onClick={handleReset}>초기화</button>*/}
+      <button onClick={handleReset}>초기화</button>
     </table>
   );
 };

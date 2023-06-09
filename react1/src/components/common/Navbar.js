@@ -16,7 +16,7 @@ const Navbar = () => {
       <Nav>
       <NavItem exact to="/" activeClassName="active" style={{ marginRight: 'auto', marginLeft: '20%' }}>
           <img 
-          src={process.env.PUBLIC_URL + '/img/logo.png'} 
+          src={process.env.PUBLIC_URL + '/img/mainlogo.png'} 
           alt="Logo"
           style={{ height: '50px'}} />
         </NavItem>
@@ -40,11 +40,10 @@ const Navbar = () => {
           <NavItem to="/mypage/myinfo" activeClassName="active">
             마이 페이지
           </NavItem>
-          </RightItems>
           <NavItem to="userselectitem" activeClassName="active">
               게시판
           </NavItem>
-          
+          </RightItems>
       </Nav>
     </LogoWrapper>
   );

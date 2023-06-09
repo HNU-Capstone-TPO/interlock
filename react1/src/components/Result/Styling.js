@@ -71,7 +71,7 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 
   return (
     <table className="Styling-info-box">
-      <button onClick={handleReset}>Save</button>
+      <button onClick={handleReset}>recommend</button>
       <button onClick={handleReset1}>SaveUser</button>
       {users.map((user) => (
         <td className="Styling-info-item" key={user.id}>
@@ -226,7 +226,9 @@ const Styling = ({ users=[], setSelectedProducts }) => {
 
   return (
     <table className="app">
-
+            <td>
+                <img className="imgab" src="/img/model.png" alt="모자1" width="80px" height="80px"></img>
+            </td>
       {boxes.map((box, index) => (
         <td className="button-container" key={index}>
           <CustomButton onClick={() => handleClick(index)}>

@@ -135,3 +135,8 @@ input[type="checkbox"]:checked + label {
   background-image: url("../../../public/img/t10checklater.png");
   width: 100px;
 }
+
+.imgab{
+  display: flex;
+  z-index: 0;
+}

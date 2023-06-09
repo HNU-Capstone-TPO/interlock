@@ -108,9 +108,9 @@ const PageContainer = styled.div`
   padding: 20px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  margin-top: 0px;
+  margin-top: 20px;
   width: 1400px;  
-  height: 850px;
+  height: 800px;
   position: relative;
   z-index:9999;
   justify-content: center;

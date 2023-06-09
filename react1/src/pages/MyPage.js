@@ -21,7 +21,6 @@ const Mypage = () => {
   return (
     <>
       <Container2>
-        
       </Container2>
       <Container>
         <Main>

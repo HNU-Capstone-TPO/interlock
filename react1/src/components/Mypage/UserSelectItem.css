@@ -8,7 +8,7 @@
     display:flex;
     border-bottom: solid 1px #2c22bb;
     width: 100%; 
-    height: 70px;
+    height: 100px;
     flex-wrap: wrap; /* 추가 */
     justify-content: center; /* 추가 */
     align-items: center;
@@ -18,7 +18,7 @@
   }
 
   .UserSelectItem-table-titlea{
-    height: 70px;
+    height: 50px;
   }
 
 .my-div {
@@ -45,7 +45,7 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    margin: 2px;
+    margin: 1px;
     width: 305px;
     height: 137px;
     top: 0;
@@ -54,18 +54,22 @@
 
   .UserSelectItem-table-button-wrapper{
     position: relative;
-    border: solid 3px #ee0c0c;
   }
 
   .UserSelectItem-imga {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 33.333333333%;
-    height: 50%;
+    width: 100px;
+    height: 68px;
     z-index: 1;
     top: 0px;
-    left: 0px;
+  }
+  
+  .UserSelectItem-imgadetail{
+    display: flex;
+    width: 99px;
+    height: 68px;
   }
 
   .UserSelectItem-imgmain1{
@@ -99,30 +103,37 @@
     height: 140px;
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .UserSelectItem-itemset{
     position: relative;
     display: flex; /* display 속성을 flex로 설정 */
     flex-direction: column;
-    justify-content: center; /* 수평 가운데 정렬 */
     align-items: center; /* 수직 가운데 정렬 */
-    border: 1px solid #ffebb5; 
-    background-color: #ffebb5; 
-    border-radius: 16px;
-    box-shadow: inset 0 0 8px #deb13a;
+    border: 1px solid #000; 
+    background-color: #ffffff; 
     width: 350px; 
-    height: 250px;
-    margin: 20px;
+    height: 500px;
+    margin: 30px;
   }
 
-  .UserSelectItem-keyward{
+  .UserSelectItem-username{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
     height: 50px;
+    font-size: 20px;
+  }
+
+  .UserSelectItem-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 200px;
     font-size: 20px;
   }
 
@@ -254,4 +265,117 @@
   height: 100%;
   justify-content: center;
   align-items: center;
+}
+
+.UserSelectItem-jjim{
+  display: flex;
+  margin-top: 20px;
+  width: 200px;
+  height: 50px;
+  align-items: center;
+  margin-right: 70px;
+}
+
+.UserSelectItem-jjimbuttonwrap{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.jello-horizontal {
+	-webkit-animation: jello-horizontal 0.9s both;
+	        animation: jello-horizontal 0.9s both;
+}
+
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.UserSelectItem-jjimbutton{
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserSelectItem-jjimimg1{
+  display: flex;
+}
+
+.UserSelectItem-jjimimg2{
+  display: none;
+  position: absolute;
+}
+
+
+
+.UserSelectItem-jjimnumber{
+  display: flex;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
 }

@@ -12,9 +12,9 @@ const SelectedList = ({ selectedProducts }) => {
   const handleSave = () => {
     if (name1) {
       setProduct((prevProduct) => {
-        const newProduct = [...prevProduct];
-        newProduct.push({ name1: name1, comment1: comment1, products: selectedProducts, score: 0 });
-        return newProduct
+        const newProduct = [...prevProduct, { 
+          name1: name1, comment1: comment1, products: selectedProducts, score: 0} ];
+        return newProduct;
       });
     }
   };
@@ -38,7 +38,7 @@ const SelectedList = ({ selectedProducts }) => {
       <td className="SelectList-hibbb">
         <td className="SelectList-hiaaa">
           <input className="input-name" type="text" placeholder="이름" value={name1} onChange={(event) => setName1(event.target.value)} />
-          <input className="input-name" type="text" placeholder="코멘트" value={comment1} onChange={(event) => setComment1(event.target.value)} />
+          <input className="input-name" type="text" placeholder="코멘트" value={comment1} onChange={(event) => setComment1(event.target.value)} maxLength={80} />
           <button onClick={handleSave}>Save</button>
           <button onClick={handleReset}>Reset</button>
         </td>

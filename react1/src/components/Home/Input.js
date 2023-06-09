@@ -1,28 +1,32 @@
 import {useState, useEffect} from 'react'
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useContext } from "react";
 import { SaveContext } from "../../contexts/SaveContext";
+
+
 
 const Input = ({setTags, onSubmit, tags, button, setButton}) => {
     const [input, setInput] = useState('');
     const [start, setStart] = useState(0);
     const [check, setCheck] = useState(false); 
     const [isDisabled, setIsDisabled] = useState(false);
-    //const [button, setButton] = useState('N');
-    const [btnActive, setBtnActive] = useState("");
+    //const [button, setButton] = useState('');
+    const [btnActive, setBtnActive] = useState();
     const {getSave} = useContext(SaveContext);
 
+
     var newTag = null;
-    let btn = ['N', 'E', 'S'];
+    let btn = ['Newbie', 'Expert', 'Search'];
 
     const toggleActive = (e) => {
-      setBtnActive((prev) => {
-        setButton(btn[e.target.value]);
-        return e.target.value;
-      });
-      console.log(button);
-    };
+        setBtnActive((prev) => {
+          setButton(btn[e.target.value][0]);
+          return e.target.value;
+        });
+      };
+      useEffect(() => {
+        console.log(`Button: ${btnActive}`);
+      }, [btnActive]);
     /*
     const removeTag = (tag) => {
       setTags(prevTags => prevTags.filter((t) => t !== tag))
@@ -55,12 +59,7 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
           return;
         }
         await setTags([...tags, newTag]);
-        const count = localStorage.getItem(newTag);
-        if (count === null) {
-          localStorage.setItem(newTag, 1);
-        } else {
-          localStorage.setItem(newTag, Number(count) + 1);
-        }
+        
         setStart(input.length);
         
         /*if (callback) {
@@ -76,37 +75,48 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
     };
 
     return (
-        <div className="textfield-wrapper" style={{ display: 'flex', flexDirection: 'column' }}>
-    <div className="container">
-      {btn.map((item, idx) => {
-        return (
-          <>
+        <div className="container-box" style={{ width: "100%",  borderRadius: "10px", backgroundColor: "white" }}>
+      <div
+        className="textfield-wrapper"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <div className="btn-container">
+          {btn.map((item, idx) => {
+            return (
             <button
+              key={idx}
               value={idx}
-              className={"btn" + (idx === btnActive ? " active" : "")}
+              className={"btnst" + (idx === Number(btnActive) ? " active" : "")}
               onClick={toggleActive}
             >
               {item}
             </button>
-          </>
-        );
-      })}
-    </div>
-            <TextField
-                style={{width: '500px'}}
-                id="outlined-multiline-static"
-                multiline
-                rows={20}
-                placeholder="입력"
-                onChange={(e)=>setInput(e.target.value)}
-                onKeyDown={(e) => handleOnKeyPress(e, e.target.value)}
-            >
-              </TextField>
-                
-                <Button style={{marginLeft: 'auto'}} disabled={!isDisabled} variant="contained" onClick={handleSubmit}>
-                  입력
-                </Button>
+            );
+          })}
+        </div>
+
+        <textarea
+          style={{
+            width: "90%",
+            border: "none",
+            outline: "none",
+            resize: "none",
+          }}
+          placeholder="입력"
+          rows={20}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => handleOnKeyPress(e, e.target.value)}
+        ></textarea>
+        <Button
+          style={{ width: "100px", height: "40px", fontSize: "18px", marginLeft: "auto", marginRight: "25px", marginBottom: "15px"}}
+          disabled={!isDisabled}
+          variant="contained"
+          onClick={handleSubmit}
+        >
+          검색
+        </Button>
       </div>
-    )
+      </div>
+    );
 }
 export default Input;

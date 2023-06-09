@@ -19,9 +19,7 @@ const Result = () => {
         </table>
         <table className="page-content">
             <td className="center-section">
-            <td>
-                <img className="imga" src="/img/model.png" alt="모자1" width="80px" height="80px"></img>
-            </td>
+            
                 <Styling users={users} setSelectedProducts={setSelectedProducts}/>
             </td>
             <td className="bottom-section">
