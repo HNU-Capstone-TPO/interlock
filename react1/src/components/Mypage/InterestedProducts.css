@@ -97,11 +97,8 @@
 }
 
 .interested-table-div0 {
-  position: relative;
   display: flex; /* display 속성을 flex로 설정 */
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-  background-color: #e6e6e6; 
+  background-color: #c6bcfe; 
   border: 2px solid #000000;
   width: 700px; 
   height: 330px;
@@ -114,11 +111,10 @@
     display: flex; /* display 속성을 flex로 설정 */
     justify-content: center; /* 수평 가운데 정렬 */
     align-items: center; /* 수직 가운데 정렬 */
-    border: 1px solid #ffebb5; 
-    background-color: #ffebb5; 
+    border: 1px solid #c6bcfe; 
     border-radius: 16px;
-    box-shadow: inset 0 0 8px #deb13a;
-    background-color: #a882e9;
+    box-shadow: inset 0 0 8px #c6bcfe;
+    background-color: #c6bcfe;
     width: 310px; 
     height: 140px;
     margin-left: 40px;
@@ -132,11 +128,11 @@
     flex-wrap: wrap;
     margin-top: 5px;
     margin-left: 2px;
-    width: 686px;
-    height: 305px;
+    width: 700px;
+    height: 330px;
     top: -3px;
     left: -1px;
-    background-color: #ffffff;
+    
   }
 
   .interested-abc { 
@@ -166,14 +162,19 @@
   }
 
   .interested-table-button-wrapper0 {
+    display: flex;
     position: relative;
+    width: 700px;
+    height: 330px;
+    left: -5px;
+    top: -4px;
   }
 
 .interested-table-button0 {
     display: flex;
     flex-wrap: wrap;
-    width: 689px;
-    height: 305px;
+    width: 700px;
+    height: 330px;
   } 
 
 .interested-table-button {
@@ -188,9 +189,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 225px;
-    margin-top: 2px;
-    margin-left: 3.3px;
-    height: 150px;
+    height: 158px;
+    margin-top: 5px;
+    margin-left: 6.5px;
     z-index: 1;
     top: 0px;
     left: 0px;
@@ -222,7 +223,7 @@
   height: 50%;
   position: relative;
   z-index: 0;
-  border: 1px solid #ffebb5; 
+  border: 1px solid #c6bcfe; 
 }
 
 .table-main { 
@@ -384,22 +385,22 @@
 .interested-mainbackb{
   display: flex;
   position: absolute;
-  width: 200px;
-  height: 125px;
+  width: 226px;
+  height: 159px;
   z-index: 8;
-  margin-left: 10px;
-  margin-top: 15px;
+  margin-left: 0px;
+  margin-top: 0px;
+  padding: 3px;
 }
 
 .interested-mainbacka{
   display: flex;
-  width: 226px;
-  height: 150px;
+  width: 227px;
+  height: 158px;
   z-index: 0;
   position: relative;
-  border: 1px solid #000000;
-  margin-top: 1px;
-  margin-left: 2px;
+  margin-left: 4px;
+  top: -1px;
 }
 
 .interested-mainback1{

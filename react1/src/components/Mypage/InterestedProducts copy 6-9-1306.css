@@ -101,7 +101,7 @@
   display: flex; /* display 속성을 flex로 설정 */
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center; /* 수직 가운데 정렬 */
-  background-color: #e6e6e6; 
+  background-color: #f4dbff; 
   border: 2px solid #000000;
   width: 700px; 
   height: 330px;
@@ -114,28 +114,28 @@
     display: flex; /* display 속성을 flex로 설정 */
     justify-content: center; /* 수평 가운데 정렬 */
     align-items: center; /* 수직 가운데 정렬 */
-    border: 1px solid #ffebb5; 
-    background-color: #ffebb5; 
+    border: 1px solid #ebc4ff; 
     border-radius: 16px;
-    box-shadow: inset 0 0 8px #deb13a;
+    box-shadow: inset 0 0 8px #ebc4ff;
     background-color: #a882e9;
     width: 310px; 
     height: 140px;
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 40px;
+    margin-top: 25px;
   }
 
   .interested-abc0 { 
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    margin: 5px;
-    width: 685px;
+    margin-top: 5px;
+    margin-left: 2px;
+    width: 686px;
     height: 305px;
     top: -3px;
     left: -1px;
-    background-color: #ffffff;
+    
   }
 
   .interested-abc { 
@@ -144,6 +144,17 @@
     flex-wrap: wrap;
     margin: 2px;
     width: 305px;
+    height: 137px;
+    top: 0;
+    left: 0;
+  }
+
+  .interested-abc1 { 
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2px;
+    width: 307px;
     height: 137px;
     top: 0;
     left: 0;
@@ -160,7 +171,7 @@
 .interested-table-button0 {
     display: flex;
     flex-wrap: wrap;
-    width: 690px;
+    width: 689px;
     height: 305px;
   } 
 
@@ -176,22 +187,28 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 225px;
-    margin: 2px;
+    margin-top: 2px;
+    margin-left: 3.3px;
     height: 150px;
     z-index: 1;
     top: 0px;
     left: 0px;
     padding: 1px;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
   }
 
 .interested-imgaa {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 33.333333333%;
-  height: 50%;
+  width: 99.5px;
+  height: 65px;
+  margin-top: 0.25px;
+  margin-bottom: 0.25px;
+  margin-left: 1px;
+  margin-right: 1px;
   z-index: 1;
+  border: 1px solid #000000;
   top: 0px;
   left: 0px;
 }
@@ -204,7 +221,7 @@
   height: 50%;
   position: relative;
   z-index: 0;
-  border: 1px solid #ffebb5; 
+  border: 1px solid #f1d8f8; 
 }
 
 .table-main { 
@@ -332,14 +349,23 @@
   position: relative;
 }
 
+.interested-main1{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  position: relative;
+}
+
 .interested-mainbackone{
   display: flex;
   position: absolute;
-  width: 50px;
-  height: 50px;
-  z-index: 10;
-  margin-left: 176px;
-  border-bottom-left-radius: 70px;
+  width: 30px;
+  height: 30px;
+  z-index: 8;
+  margin-left: 64px;
+  margin-top: 2px;
+  border-radius: 100px;
 }
 
 .interested-mainbacktwo{
@@ -348,7 +374,7 @@
   width: 50px;
   height: 50px;
   z-index: 8;
-  margin-left: 170px;
+  margin-left: 165px;
   border-radius: 100px;
   margin-top: 5px;
 }
@@ -357,21 +383,22 @@
 .interested-mainbackb{
   display: flex;
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 222px;
+  height: 146px;
   z-index: 8;
-  margin-left: 50px;
-  margin-top: 10px;
+  margin-left: 0px;
+  margin-top: 0px;
 }
 
 .interested-mainbacka{
   display: flex;
-  width: 225.5px;
+  width: 226px;
   height: 150px;
   z-index: 0;
   position: relative;
   border: 1px solid #000000;
-  margin: 1px;
+  margin-top: 1px;
+  margin-left: 2px;
 }
 
 .interested-mainback1{
@@ -381,7 +408,7 @@
   height: 100%;
   z-index: 10;
   display: none;
-  background-color: #a12929;
+  background-color: #ffffff;
 }
 
 .mainback2{

@@ -31,7 +31,7 @@ const InterestedProducts = () => {
             <td className="interested-table-button0">
               <td className="interested-abc0">
                 <td className="interested-mainbacka">
-                  <img className="interested-mainbackb" src="/img/logo.png" alt="아우터" width="90%" height="90%"></img>
+                  <img className="interested-mainbackb" src="/img/logo.png" alt="아우터" width="100%" height="100%"></img>
                 </td>
                 <td className="interested-mainbacka">
                   <img className="interested-mainbackb" src="/img/logo.png" alt="아우터" width="90%" height="90%"></img>
