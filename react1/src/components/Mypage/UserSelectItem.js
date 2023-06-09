@@ -55,24 +55,32 @@ const UserSelectItem = () => {
               <div className="UserSelectItem-table-button-wrapper">
                 <button className="UserSelectItem-table-button" onClick={() => handleSetClick(index)}>
                 <td className="UserSelectItem-abc">
-                  <img className="UserSelectItem-imgmain1" src="/img/상의로고.png" alt="상의" width="100%" height="100%"></img>
-                  <img className="UserSelectItem-imgmain1" src="/img/하의로고.png" alt="하의" width="100%" height="100%"></img>
-                  <img className="UserSelectItem-imgmain1" src="/img/신발로고.png" alt="신발" width="100%" height="100%"></img>
-                  <img className="UserSelectItem-imgmain1" src="/img/모자로고.png" alt="모자" width="100%" height="100%"></img>
-                  <img className="UserSelectItem-imgmain1" src="/img/아우터로고.png" alt="아우터" width="100%" height="100%"></img>
-                  <img className="UserSelectItem-imgmain1" src="/img/악세사리로고.png" alt="악세사리" width="100%" height="100%"></img>
+                  <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="상의" width="100%" height="100%"></img>
+                  <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="하의" width="100%" height="100%"></img>
+                  <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="신발" width="100%" height="100%"></img>
+                  <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="모자" width="100%" height="100%"></img>
+                  <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="아우터" width="100%" height="100%"></img>
+                  <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="악세사리" width="100%" height="100%"></img>
                 </td>
                 <td className="UserSelectItem-abc">
                 {users.products.filter((item) => item !== null).map((item, index1) => (
                   <td className="UserSelectItem-imga" key={index1}>
-                    <td>
-                      {item.part === "상의" && <img className="UserSelectItem-imgadetail" src={item.image} alt="상의1"></img>}
-                      {item.part === "하의" && <img className="UserSelectItem-imgadetail" src={item.image} alt="하의1"></img>}
+                      {item.part === "상의" && (
+                      <div className="UserSelectItem-main1">
+                        <img className="UserSelectItem-imgadetail" src={item.image} alt="상의1"></img>
+                        <img className="UserSelectItem-mainbackone" src="/img/상의로고.PNG" alt="1" width="50%" height="50%"></img>
+                      </div> 
+                      )}
+                      {item.part === "하의" && (
+                        <div className="UserSelectItem-main1">
+                        <img className="UserSelectItem-imgadetail" src={item.image} alt="하의1"></img>
+                        <img className="UserSelectItem-mainbackone" src="/img/하의로고.PNG" alt="1" width="50%" height="50%"></img>
+                        </div>
+                      )}
                       {item.part === "신발" && <img className="UserSelectItem-imgadetail" src={item.image} alt="신발1"></img>}
                       {item.part === "모자" && <img className="UserSelectItem-imgadetail" src={item.image} alt="모자1"></img>}
                       {item.part === "아우터" && <img className="UserSelectItem-imgadetail" src={item.image} alt="아우터1"></img>}
                       {item.part === "악세사리" && <img className="UserSelectItem-imgadetail"src={item.image} alt="악세사리1"></img>}
-                    </td>
                   </td>
                 ))}
                 </td>

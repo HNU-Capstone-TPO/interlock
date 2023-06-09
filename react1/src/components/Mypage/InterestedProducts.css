@@ -130,8 +130,9 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    margin: 5px;
-    width: 685px;
+    margin-top: 5px;
+    margin-left: 2px;
+    width: 686px;
     height: 305px;
     top: -3px;
     left: -1px;
@@ -171,7 +172,7 @@
 .interested-table-button0 {
     display: flex;
     flex-wrap: wrap;
-    width: 690px;
+    width: 689px;
     height: 305px;
   } 
 
@@ -187,13 +188,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 225px;
-    margin: 2px;
+    margin-top: 2px;
+    margin-left: 3.3px;
     height: 150px;
     z-index: 1;
     top: 0px;
     left: 0px;
     padding: 1px;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
   }
 
 .interested-imgaa {
@@ -391,12 +393,13 @@
 
 .interested-mainbacka{
   display: flex;
-  width: 225.5px;
+  width: 226px;
   height: 150px;
   z-index: 0;
   position: relative;
   border: 1px solid #000000;
-  margin: 1px;
+  margin-top: 1px;
+  margin-left: 2px;
 }
 
 .interested-mainback1{

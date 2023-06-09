@@ -46,7 +46,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 1px;
-    width: 305px;
+    width: 307px;
     height: 137px;
     top: 0;
     left: 0;
@@ -64,12 +64,17 @@
     height: 68px;
     z-index: 1;
     top: 0px;
+    margin-top: 0.25px;
+    margin-bottom: 0.25px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: 1px solid #000000;
   }
   
   .UserSelectItem-imgadetail{
     display: flex;
     width: 99px;
-    height: 68px;
+    height: 64px;
   }
 
   .UserSelectItem-imgmain1{
@@ -378,4 +383,23 @@
   width: 40px;
   height: 40px;
   font-size: 22px;
+}
+
+.UserSelectItem-main1{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  position: relative;
+}
+
+.UserSelectItem-mainbackone{
+  display: flex;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  z-index: 8;
+  margin-left: 64px;
+  margin-top: 2px;
+  border-radius: 100px;
 }
