@@ -102,6 +102,12 @@
   margin-right: 2px;
 }
 
+.model-image{
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
 
 .Styling-info-detail-name {
   display: flex;

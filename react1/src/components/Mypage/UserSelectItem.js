@@ -33,15 +33,24 @@ const UserSelectItem = () => {
     setCurrentPage(currentPage - 1);
   };
 
+  const handlePrevClickfirst = () => {
+    setCurrentPage(1);
+  };
+
   const handleNextClick = () => {
     setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevClickend = () => {
+    if((product.length % 3) !== 0)
+      setCurrentPage(Math.floor((product.length / 3) + 1));
+    else
+      setCurrentPage((product.length / 3));
   };
 
   const itemsPerPage = 3;
 
   const pageItems = product.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
-  const filteredProducts = product.filter((product, index) => index % 3 === 0);
-
 
   return (
     <table className="UserSelectItem-table-wrap">
@@ -215,12 +224,18 @@ const UserSelectItem = () => {
         )}
       </div>
       <td className="UserSelectItem-pagination">
+        <button className="UserSelectItem-pagination-click" onClick={handlePrevClickfirst} disabled={currentPage === 1}>
+          <img className="UserSelectItem-pagination-animation" src="/img/DRW3F7A.png" alt="awsdf" width="30px" height="30px"></img>
+        </button>
         <button className="UserSelectItem-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
-          <img className="UserSelectItem-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
+          <img className="UserSelectItem-pagination-animation" src="/img/cif00001.png" alt="awsdf" width="30px" height="30px"></img>
         </button>
         <td className="UserSelectItem-pagination-number">{currentPage}</td>
         <button className="UserSelectItem-pagination-click" onClick={handleNextClick} disabled={(product.length < (currentPage * itemsPerPage)+1)}>
-          <img className="UserSelectItem-pagination-animation" src="/img/right.png" alt="awsdf" width="30px" height="30px"></img>
+          <img className="UserSelectItem-pagination-animation" src="/img/cif000011.png" alt="awsdf" width="30px" height="30px"></img>
+        </button>
+        <button className="UserSelectItem-pagination-click" onClick={handlePrevClickend} >
+          <img className="UserSelectItem-pagination-animation" src="/img/DRWA831D.png" alt="awsdf" width="30px" height="30px"></img>
         </button>
       </td>
     </table>
