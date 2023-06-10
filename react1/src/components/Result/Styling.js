@@ -76,49 +76,81 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
       user && (
         <td className="Styling-info-item" key={user.id}>
           <td className="Styling-info-detail">
-            <td className="Styling-info-detail-name">
+            <td>
               {user.name}
             </td>
-            <td className="Styling-info-detail2">
-              <td className="Styling-info-item-img">
-              <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100%", height: "100%" }}/>
-              </td>
-              <td className="Styling-info-detail3">
-                <div className="Styling-info-pricebrand">{user.price}</div> 
-                <div className="Styling-info-pricebrand">{user.brand}</div>
-                <div className="Styling-info-pricebrand">{user.color}</div>
-                <td className="Styling-info-detail2">
-                  <div className="Styling-info-rink">
-                    <a href={user.rink} target="_blank" rel="noopener noreferrer">
-                      <img src="/img/t10rink.png" alt="링크" style={{ width: "50px", height: "50px" }}/>
-                    </a>
-                  </div>
-                  {(index % 3 === 0) &&
-                  <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked1(true);
-                  setTimeout(() => {setIsClicked1(false);}, 1000); }} style={{ animation: isClicked1? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
-                    <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
-                  </div>
-                  }
-                  {(index % 3 === 1) &&
-                  <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked2(true);
-                  setTimeout(() => {setIsClicked2(false);}, 1000); }} style={{ animation: isClicked2? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
-                    <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
-                  </div>
-                  }
-                  {(index % 3 === 2) &&
-                  <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked3(true);
-                  setTimeout(() => {setIsClicked3(false);}, 1000); }} style={{ animation: isClicked3? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
-                    <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
-                  </div>
-                  }
-                  <td className="Styling-info-item-button">
-                    <input type="checkbox" id={`checkbox-${user.id}`} onChange={(e) => handleCheckboxChange(e, user)}/>
-                    <label className="Styling-info-item-label" for={`checkbox-${user.id}`}></label>
-                  </td>
-                </td>  
-              </td>
-            </td >
-            
+            <td className="Styling-info-detail">
+              <td className="Styling-info-detail2">
+                <td className="Styling-info-item-img">
+                <img src={process.env.PUBLIC_URL + user.image} alt={user.name} style={{ width: "100%", height: "100%" }}/>
+                </td>
+                <td className="Styling-info-detail3">
+                  <div className="Styling-info-pricebrand">{user.price}</div> 
+                  <div className="Styling-info-pricebrand">{user.brand}</div>
+                  <td className="UserSelectItem-info-pricebrand">
+                        {user.color.map((color) => {
+                          if (color === '검정') {
+                            return <img className="color-img" src="/img/color/검정.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '하양') {
+                            return <img className="color-img" src="/img/color/하양.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '파랑'){
+                            return <img className="color-img" src="/img/color/파랑.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '갈색'){
+                            return <img className="color-img" src="/img/color/갈색.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '노랑'){
+                            return <img className="color-img" src="/img/color/노랑.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '보라'){
+                            return <img className="color-img" src="/img/color/보라.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '분홍'){
+                            return <img className="color-img" src="/img/color/분홍.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '빨강'){
+                            return <img className="color-img" src="/img/color/빨강.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '아이보리'){
+                            return <img className="color-img" src="/img/color/아이보리.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '주황'){
+                            return <img className="color-img" src="/img/color/주황.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '초록'){
+                            return <img className="color-img" src="/img/color/초록.png" alt="모자1" width="20px" height="20px"></img>;
+                          } else if (color === '회색'){
+                            return <img className="color-img" src="/img/color/회색.png" alt="모자1" width="20px" height="20px"></img>;
+                          }
+                            else {
+                            return color;
+                          }
+                        })}
+                        </td>
+                  <td className="Styling-info-detail2">
+                    <div className="Styling-info-rink">
+                      <a href={user.rink} target="_blank" rel="noopener noreferrer">
+                        <img src="/img/t10rink.png" alt="링크" style={{ width: "50px", height: "50px" }}/>
+                      </a>
+                    </div>
+                    {(index % 3 === 0) &&
+                    <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked1(true);
+                    setTimeout(() => {setIsClicked1(false);}, 1000); }} style={{ animation: isClicked1? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
+                      <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
+                    </div>
+                    }
+                    {(index % 3 === 1) &&
+                    <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked2(true);
+                    setTimeout(() => {setIsClicked2(false);}, 1000); }} style={{ animation: isClicked2? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
+                      <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
+                    </div>
+                    }
+                    {(index % 3 === 2) &&
+                    <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked3(true);
+                    setTimeout(() => {setIsClicked3(false);}, 1000); }} style={{ animation: isClicked3? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
+                      <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
+                    </div>
+                    }
+                    <td className="Styling-info-item-button">
+                      <input type="checkbox" id={`checkbox-${user.id}`} onChange={(e) => handleCheckboxChange(e, user)}/>
+                      <label className="Styling-info-item-label" for={`checkbox-${user.id}`}></label>
+                    </td>
+                  </td>  
+                </td>
+              </td >
+            </td>
           </td>
         </td>)
        ) : <td style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: "30px"}}>상품 없음</td>}

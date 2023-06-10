@@ -49,7 +49,7 @@ const SelectedList = ({ selectedProducts }) => {
       <td className="SelectList-hibbb">
         <td className="SelectList-hiaaa">
           <input className="input-name" type="text" style={{width: "100px"}} placeholder="이름" value={name1} onChange={(event) => setName1(event.target.value)} />
-          <input className="input-name" type="text" placeholder="이곳에 코멘트를 적어주세요." value={comment1} onChange={(event) => setComment1(event.target.value)} maxLength={80} />
+          <input className="input-name" type="text" placeholder="이곳에 코멘트를 적어주세요." value={comment1} onChange={(event) => setComment1(event.target.value)} maxLength={70} />
           <div className="SelectedList-jjimbutton1" onClick={() => {handleSave(); setIsClicked1(true);
           setTimeout(() => {setIsClicked1(false);}, 1000); }} style={{ animation: isClicked1? 'SelectedList-jello-horizontal1 0.9s both' : 'none' }}>
             <div style={{border: "none",

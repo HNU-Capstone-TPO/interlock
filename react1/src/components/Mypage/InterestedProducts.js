@@ -161,31 +161,70 @@ const InterestedProducts = () => {
         <div className="InterestedProducts-table-detail">               
           <table>
             <thead className="InterestedProducts-table-head">
-              <td className="InterestedProducts-headcss">
-                상세 보기
+              <td className="InterestedProducts-border-size">
+                <td className="InterestedProducts-headcss">
+                  상세 보기
+                </td>
               </td>
               <button className="interested-Xbutton" onClick={() => setSelectedSet(null)}>
-                X
+                <img src="/img/Timelinedelete.png" alt="awsdf" width="20px" height="20px"></img>
               </button>
             </thead>
-            <tbody>
+            <td className="interested-info-in">
               {recommend[selectedSet].products.filter((item) => item !== null).map((itema, index) => (
-                <tr className="InterestedProducts-table-detail2" key={index}>
-                  <td className="interested-table-detail-img">
-                    <img src="/img/Ad_1.jpg" alt="모자1" width="100%" height="100%"></img>
-                  </td>
-                  <td className="interested-table-set">
-                    <td className="interested-table-detail-name">{itema.name}</td>
-                    <td className="interested-table-detail-price">{itema.price}</td>
-                    <td className="interested-table-detail-rink">
-                      <a href={itema.rink} target="_blank" rel="noopener noreferrer">
-                        <img src="/img/Ad_1.jpg" alt="Ad_1" width="80px" height="80px" />
-                      </a>
+                <td className="InterestedProducts-table-detail2" key={index}>
+                  <td className="InterestedProducts-info-detail1">
+                    <td className="InterestedProducts-info-name" >
+                      {itema.name}
                     </td>
-                  </td> 
-                 </tr>
+                    <td className="InterestedProducts-info-detail2">
+                    <img className="interested-table-detail-img" src={itema.image} alt="모자1" width="80px" height="80px"></img>
+                    <td className="interested-info-detail3">
+                      <td className="interested-table-info-pricebrand">{itema.name}</td>
+                      <td className="interested-table-info-pricebrand">{itema.price}</td>
+                      <td className="interested-table-info-pricebrand">
+                          {itema.color.map((color) => {
+                            if (color === '검정') {
+                              return <img className="interested-color-img" src="/img/color/검정.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '하양') {
+                              return <img className="interested-color-img" src="/img/color/하양.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '파랑'){
+                              return <img className="interested-color-img" src="/img/color/파랑.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '갈색'){
+                              return <img className="interested-color-img" src="/img/color/갈색.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '노랑'){
+                              return <img className="interested-color-img" src="/img/color/노랑.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '보라'){
+                              return <img className="interested-color-img" src="/img/color/보라.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '분홍'){
+                              return <img className="interested-color-img" src="/img/color/분홍.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '빨강'){
+                              return <img className="interested-color-img" src="/img/color/빨강.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '아이보리'){
+                              return <img className="interested-color-img" src="/img/color/아이보리.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '주황'){
+                              return <img className="interested-color-img" src="/img/color/주황.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '초록'){
+                              return <img className="interested-color-img" src="/img/color/초록.png" alt="모자1" width="20px" height="20px"></img>;
+                            } else if (color === '회색'){
+                              return <img className="interested-color-img" src="/img/color/회색.png" alt="모자1" width="20px" height="20px"></img>;
+                            }
+                              else {
+                              return color;
+                            }
+                          })}
+                          </td>
+                        </td>
+                      <td className="interested-table-detail-rink">
+                        <a href={itema.rink} target="_blank" rel="noopener noreferrer">
+                          <img src="/img/rink.png" alt="Ad_1" width="50px" height="50px" />
+                        </a>
+                      </td>
+                    </td> 
+                  </td>
+                </td>
               ))}
-            </tbody>
+            </td>
           </table>
         </div>
       )}

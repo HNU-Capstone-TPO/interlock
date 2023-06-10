@@ -20,6 +20,9 @@
   .UserSelectItem-table-titlea{
     height: 50px;
   }
+.bold{
+  font-weight: bold;
+}
 
 .my-div {
     display: inline-block;
@@ -32,6 +35,14 @@
     border-radius: 10px;
     width: 1024px;
     height: 100%;
+  }
+
+  .info-in{
+    display: flex;
+    flex-wrap: wrap; /* flex-wrap 속성을 wrap으로 설정 */
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
   }
 
   .UserSelectItem-set-buttons{   /*클릭하는 버튼용*/
@@ -130,6 +141,7 @@
     width: 200px;
     height: 50px;
     font-size: 20px;
+    border-bottom: 2px solid #b5dcff;
   }
 
   .UserSelectItem-comment{
@@ -140,36 +152,83 @@
     width: 250px;
     height: 200px;
     font-size: 20px;
+    border-bottom: 2px solid #b5dcff;
   }
 
-  .UserSelectItem-table-detail{
+  .UserSelectItem-table-detail1{
     display: flex;
+    flex-direction: row;
     position: absolute;
-    top : 100px;
-    left : 70px;
+    top : -30px;
+    left : -290px;
+    flex-wrap: wrap;
     border: 3px solid #295fb7;
-    background-color: #ffffff; 
-    width: 500px; 
-    height: 700px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 1000px; 
+    height: auto;
     margin: 1em 0;
     margin-left:35%;
     z-index: 10;
     font-family: IBM Plex Sans KR-Light;
   }
 
+  .U{
+    display: flex;
+    flex-direction: column;
+  }
+
   .UserSelectItem-table-detail2 {              /* 부품별 창 */
     position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
     display: flex; /* display 속성을 flex로 설정 */
     align-items: center; /* 수직 가운데 정렬 */
     border: 3px solid #b5dcff; 
-    width: 494px; 
-    height: 130px;
+    background-color: #f9f9f9;
+    width: 430px; 
+    height: 230px;
+    margin: 15px;
+  }
+  
+  .color-img{
+    margin-left: 2px;
+    margin-right: 2px;
+  
+  }
+
+  .info-name{
+    display: flex;
+    width: 420px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .UserSelectItem-info-detaill {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .UserSelectItem-info-detail2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+  }
+  
+  .UserSelectItem-info-detail3 {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-left: 5px;
   }
   
   .UserSelectItem-table-head{
     display: flex;
-    height: 40px;
-    width: 500px;
+    height: 70px;
+    width: 992px;
   }
   
   .UserTable{
@@ -177,11 +236,20 @@
     width: 500px;
   }
 
+  .border-size{
+    width: 800px;
+    margin-left: 96px;
+    border-bottom:2px solid #2c22bb;
+  }
+
   .UserSelectItem-headcss{
     display: flex;
-    width: 464px;
-    justify-content: center;
+    width: 500px;
+    margin-left: 324px;
     align-items: center;
+    height: 70px;
+    font-size: 35px;
+    font-weight: bold;
   }
 
   .UserSelectItem-pagination{
@@ -227,12 +295,14 @@
     height: 30px;
     background-color: #ffffff;
     border: #ffffff;
+    margin-left: 58px;
+    margin-top: 10px;
   }
 
   .UserSelectItem-table-detail-img {     /*상세보기 이미지*/
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 150px;
     border: 3px solid #b5dcff; 
     margin-left: 10px;
     margin-right: 10px;
@@ -246,13 +316,28 @@
   margin-right: 10px;
 }
 
-.UserSelectItem-table-detail-name {    /*상세보기 이름*/
-  display: flex; 
-  width: 250px;
-  height: 100%;
-  justify-content: center; 
+.UserSelectItem-table-detail-name {
+  display: flex;
+  width: 475px;
+  height: 75px;
+  justify-content: center;
   align-items: center;
-  padding: 0.5em;
+  font-size: 20px;
+}
+
+.info-box{
+  display: flex;
+  width: 400px;
+  height: 200px;
+}
+
+.UserSelectItem-info-pricebrand {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  border-top:1px solid #dcdcdc; 
+  border-bottom: 1px solid #dcdcdc; 
+  align-items: center;
 }
 
 .UserSelectItem-table-detail-price {   /*상세보기 가격*/
@@ -271,6 +356,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.UserSelectItem-info-rink{
+  display: flex;
+  margin-left: 13px;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .UserSelectItem-jjim{
   display: flex;

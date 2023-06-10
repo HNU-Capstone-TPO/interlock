@@ -30,32 +30,63 @@
   }
 
   .InterestedProducts-table-detail {             /* 아이템 눌렀을때 보이는 상세창 */
+    display: flex;
+    flex-direction: row;
     position: absolute;
-    top : 100px;
-    left : 70px;
+    top : 70px;
+    left : -200px;
+    flex-wrap: wrap;
     border: 3px solid #295fb7;
-    background-color: #ffffff; 
-    width: 500px; 
-    height: 700px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 1000px; 
+    height: auto;
     margin: 1em 0;
     margin-left:35%;
-    z-index: 12;
+    z-index: 10;
     font-family: IBM Plex Sans KR-Light;
   }
 
+.InterestedProducts-info-detail2{
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.InterestedProducts-info-name{
+  display: flex;
+  width: 420px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .InterestedProducts-table-detail2 {              /* 부품별 창 */
-    position: relative;
-    display: flex; /* display 속성을 flex로 설정 */
-    align-items: center; /* 수직 가운데 정렬 */
-    border: 3px solid #b5dcff; 
-    width: 494px; 
-    height: 130px;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex; /* display 속성을 flex로 설정 */
+  align-items: center; /* 수직 가운데 정렬 */
+  border: 3px solid #b5dcff; 
+  background-color: #f9f9f9;
+  width: 430px; 
+  height: 230px;
+  margin: 15px;
   }
+
+.interested-info-detail3 {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 5px;
+}
 
 .interested-table-detail-img {     /*상세보기 이미지*/
   display: flex;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 150px;
   border: 3px solid #b5dcff; 
   margin-left: 10px;
   margin-right: 10px;
@@ -79,19 +110,23 @@
   padding: 0.5em;
 }
 
-.interested-table-detail-price {   /*상세보기 가격*/
+.interested-color-img{
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.interested-table-info-pricebrand {   /*상세보기 가격*/
   display: flex;
-  width: 50px;
-  height: 100%;
-  justify-content: center;
+  width: 200px;
+  height: 50px;
+  border-top:1px solid #dcdcdc; 
+  border-bottom: 1px solid #dcdcdc; 
   align-items: center;
-  padding: 0.5em;
 }
 
 .interested-table-detail-rink {     /*상세보기 이미지*/
   display: flex;
-  width: 100px;
-  height: 100%;
+  margin-left: 13px;
   justify-content: center;
   align-items: center;
 }
@@ -204,7 +239,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 99.5px;
-  height: 65px;
+  height: 67px;
   margin-top: 0.25px;
   margin-bottom: 0.25px;
   margin-left: 1px;
@@ -315,6 +350,16 @@
   height: 30px;
   background-color: #ffffff;
   border: #ffffff;
+  margin-left: 58px;
+  margin-top: 10px;
+}
+
+.interested-info-in{
+  display: flex;
+  flex-wrap: wrap; /* flex-wrap 속성을 wrap으로 설정 */
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .interested-table-title {
@@ -429,12 +474,22 @@
 
 .InterestedProducts-table-head{
   display: flex;
-  height: 40px;
+  height: 70px;
+  width: 992px;
+}
+
+.InterestedProducts-border-size{
+  width: 800px;
+  margin-left: 96px;
+  border-bottom:2px solid #2c22bb;
 }
 
 .InterestedProducts-headcss{
   display: flex;
-  width: 464px;
-  justify-content: center;
+  width: 500px;
+  margin-left: 324px;
   align-items: center;
+  height: 70px;
+  font-size: 35px;
+  font-weight: bold;
 }
