@@ -180,8 +180,8 @@ const InterestedProducts = () => {
                     <td className="InterestedProducts-info-detail2">
                     <img className="interested-table-detail-img" src={itema.image} alt="모자1" width="80px" height="80px"></img>
                     <td className="interested-info-detail3">
-                      <td className="interested-table-info-pricebrand">{itema.name}</td>
                       <td className="interested-table-info-pricebrand">{itema.price}</td>
+                      <td className="interested-table-info-pricebrand">{itema.brand}</td>
                       <td className="interested-table-info-pricebrand">
                           {itema.color.map((color) => {
                             if (color === '검정') {

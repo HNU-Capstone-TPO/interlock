@@ -13,7 +13,6 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
     const [isDisabled, setIsDisabled] = useState(false);
     //const [button, setButton] = useState('');
     const [btnActive, setBtnActive] = useState();
-    const {getSave} = useContext(SaveContext);
 
 
     var newTag = null;
@@ -72,7 +71,6 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
     const handleSubmit = async (e) => {
       await handleOnKeyPress({ key: " " });
       onSubmit();
-      getSave();
     };
 
     return (

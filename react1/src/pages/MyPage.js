@@ -26,7 +26,7 @@ const Mypage = () => {
         <Main>
           <Sidebarwrap>
             <Sidebar>
-              <SidebarItem to="/mypage/myinfo">내 정보</SidebarItem>
+              <SidebarItem to="/mypage/">내 정보</SidebarItem>
               <SidebarItem to="/mypage/timeline">타임라인</SidebarItem>
               <SidebarItem to="/mypage/favorites">찜 목록</SidebarItem>
               <SidebarItemLast to="/mypage/interested-products">추천 상품</SidebarItemLast>
@@ -35,7 +35,7 @@ const Mypage = () => {
           <Content>
             <PageContainer>
               <Routes>
-                <Route path="myinfo" element={<MyInfo />} />
+                <Route path="/" element={<MyInfo />} />
                 <Route path="timeline" element={<Timeline />} />
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="interested-products" element={<InterestedProducts />} />

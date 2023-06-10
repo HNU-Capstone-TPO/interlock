@@ -45,7 +45,7 @@ const Favorites = () => {
             <tr className="favorites-my-div2" key={user.id}>
               <td className="favorites-keyward">
                 <td className="favorites-keywarda">
-                  <img src="/img/Ad_1.jpg" alt={user.image} width="80px" height="80px"></img>
+                  <img src={user.image} alt={user.image} width="120px" height="120px"></img>
                   {/*<img src={user.image} alt={user.image} width="80px" height="80px"></img>*/}  
                 </td>
               </td>

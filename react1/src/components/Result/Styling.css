@@ -112,7 +112,27 @@
   font-size: 20px;
 }
 
-.Styling-info-item-button {
+.Styling-info-item-button1 {
+  display: flex;
+  width: 52px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  background-color: #ffffff;
+}
+
+.Styling-info-item-button2 {
+  display: flex;
+  width: 52px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  background-color: #ffffff;
+}
+
+.Styling-info-item-button3 {
   display: flex;
   width: 52px;
   height: 50px;
@@ -165,8 +185,60 @@ input[type="checkbox"]:checked + label {
 .Styling-jello-horizontal1 {
 	animation: Styling-jello-horizontal1 0.9s both;
 }
+.Styling-jello-horizontal2 {
+	animation: Styling-jello-horizontal2 0.9s both;
+}
+.Styling-jello-horizontal3 {
+	animation: Styling-jello-horizontal3 0.9s both;
+}
 
 @keyframes Styling-jello-horizontal1 {
+  0% {
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes Styling-jello-horizontal2 {
+  0% {
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes Styling-jello-horizontal3 {
   0% {
             transform: scale3d(1, 1, 1);
   }

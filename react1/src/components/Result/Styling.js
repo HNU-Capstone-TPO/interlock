@@ -72,7 +72,7 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 
   return (
     <table className="Styling-info-box">
-       {pageItems.length > 0 ? pageItems.map((user) =>
+       {pageItems.length > 0 ? pageItems.map((user, index) =>
       user && (
         <td className="Styling-info-item" key={user.id}>
           <td className="Styling-info-detail">
@@ -126,20 +126,20 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
                       </a>
                     </div>
                     {(index % 3 === 0) &&
-                    <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked1(true);
+                    <div className="Styling-info-item-button1" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked1(true);
                     setTimeout(() => {setIsClicked1(false);}, 1000); }} style={{ animation: isClicked1? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
                       <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
                     </div>
                     }
                     {(index % 3 === 1) &&
-                    <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked2(true);
-                    setTimeout(() => {setIsClicked2(false);}, 1000); }} style={{ animation: isClicked2? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
+                    <div className="Styling-info-item-button2" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked2(true);
+                    setTimeout(() => {setIsClicked2(false);}, 1000); }} style={{ animation: isClicked2? 'Styling-jello-horizontal2 0.9s both' : 'none' }}>
                       <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
                     </div>
                     }
                     {(index % 3 === 2) &&
-                    <div className="Styling-info-item-button" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked3(true);
-                    setTimeout(() => {setIsClicked3(false);}, 1000); }} style={{ animation: isClicked3? 'Styling-jello-horizontal1 0.9s both' : 'none' }}>
+                    <div className="Styling-info-item-button3" onClick={() => {handleSaveButtonClick(user); handleSaveRecommend(user); setIsClicked3(true);
+                    setTimeout(() => {setIsClicked3(false);}, 1000); }} style={{ animation: isClicked3? 'Styling-jello-horizontal3 0.9s both' : 'none' }}>
                       <img className="Styling-jjimimg1" src="/img/t10jjim.png" alt="모자1" width="50px" height="50px"></img>
                     </div>
                     }

@@ -3,6 +3,7 @@ import Input from "../components/Home/Input";
 import TagRank from "../components/Home/TagRank";
 import ItemRank from "../components/Home/ItemRank";
 import Guide from "../components/Home/Guide";
+import PostRank from "../components/Home/PostRank"
 import './Home.css';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -45,12 +46,19 @@ const Home = () => {
       }
     }, []);
 
+    const getSave = () => {
+      const newSave = [tags, ...save];
+      setSave(newSave);
+      saveToLocalStorage("save", newSave);
+    };
+
     useEffect(() => {
       if (submitFlag) {
         const formData = new FormData();
         formData.append("query", tags);
         formData.append("button", button);
         console.log('보내는 태그', tags);
+        getSave(tags);
         axios
           .post("http://127.0.0.1:8000/search/", formData, {
             headers: { "Content-Type": "multipart/form-data" },
@@ -78,25 +86,16 @@ const Home = () => {
         console.log("query:", query);
       }
     }, [tags, submitFlag, navigate]);
-   
-  
-  const getSave = () => {
-    const newSave = [tags, ...save];
-    setSave(newSave);
-    saveToLocalStorage("save", newSave);
-  };
     
     return (
-      <SaveContext.Provider value={{ getSave }}>
         <div className="home">
-          
         <img className="back" src="/img/background.jpg" alt="상의" width="100%" height="100%" />
             <div className="center">
               
                 <div className="helper" style={{marginBottom: "20px"}} ><Helper tags={tags}/></div>
                 <div className="input-container" style={{ display: "flex", justifyContent: "space-between"}}>
                 <div className="input">
-                  <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton} getSave={getSave}/>
+                  <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton}/>
                 </div >
                 
                 <Guide />
@@ -106,9 +105,9 @@ const Home = () => {
             <div style={{display: "flex", flexDirection: "row",  justifyContent: "center", marginTop: "5%", marginBottom: "5%", gap: "2rem"}}>
                   <TagRank />
                   <ItemRank />
+                  <PostRank />
                 </div>
         </div>
-        </SaveContext.Provider>
     )
 }
 
