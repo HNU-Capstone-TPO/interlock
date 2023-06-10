@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, NavItem, LogoWrapper, RightItems } from './NavbarStyles';
-import { AuthContext } from '../../contexts/LoggendIn';
+import { AuthContext } from "../../contexts/LoggendIn"
 
 const Navbar = () => {
 
@@ -16,9 +16,9 @@ const Navbar = () => {
       <Nav>
       <NavItem exact to="/" activeClassName="active" style={{ marginRight: 'auto', marginLeft: '20%' }}>
           <img 
-          src={process.env.PUBLIC_URL + '/img/mainlogo.png'} 
+          src={process.env.PUBLIC_URL + '/img/logo13.png'} 
           alt="Logo"
-          style={{ height: '50px'}} />
+          style={{ height: '40px'}} />
         </NavItem>
         <RightItems>
         {isLoggedIn ? (
@@ -37,19 +37,21 @@ const Navbar = () => {
               </NavItem>
             </>
           )}
-          <NavItem to="/mypage/myinfo" activeClassName="active">
+          <NavItem to="/mypage" activeClassName="active">
             마이 페이지
           </NavItem>
           <NavItem to="userselectitem" activeClassName="active">
               게시판
           </NavItem>
           </RightItems>
+          
       </Nav>
     </LogoWrapper>
   );
 };
 
 export default Navbar;
+
 
 /*import React from 'react';
 import { NavLink } from 'react-router-dom';

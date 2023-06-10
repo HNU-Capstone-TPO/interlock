@@ -6,13 +6,14 @@
   align-items: center;
   min-height: 100vh;
   margin: 0 auto;
+  margin-top: 120px;
   padding: 0;
   
 }
 .back{
 position: absolute;
-width: 2560px;
-height: 1920px;
+width: 1903px;
+height: 1840px;
 z-index: -1;
 }
 .center {
@@ -24,7 +25,7 @@ z-index: -1;
 .input-container{
 display: flex;
   justify-content: space-between;
-  width: 120%;  /* 적절한 크기로 조절합니다. */
+  width: 140%;  /* 적절한 크기로 조절합니다. */
 }
 .input {
   width: 100%;

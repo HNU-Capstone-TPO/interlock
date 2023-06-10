@@ -1,16 +1,18 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../common/Navbar';
-
-// <main style={{ paddingTop: '50px' }}> <Outlet /> </main> 공백넣기
+import Footer from '../common/Footer'
 const Layout = () => {
   return (
-    <div>
+    
+    <div >
+      
       <Navbar />
       <main> 
         <Outlet />
       </main>
       <footer>
+        <Footer />
       </footer>
     </div>
   );

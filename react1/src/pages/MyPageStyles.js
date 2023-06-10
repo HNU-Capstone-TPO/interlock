@@ -153,6 +153,7 @@ const Content = styled.div`
 const PageContainer = styled.div`
   background-color: #f9f9f9;
   padding: 20px;
+
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-top: 20px;

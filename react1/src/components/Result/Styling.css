@@ -24,6 +24,13 @@
   width: 500px;
   height: 500px;
   border: 3px solid #000000;
+  border-radius: 6px;
+}
+
+.image-button {
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .button-container {
@@ -37,9 +44,10 @@
   display: flex;
   flex-direction: column;
   width: 500px;
-  height: 700px;
+  height: 1000px;
   position: absolute;
-
+  left: 200px;
+  top: 200px;
   background-color: #f9f9f9;
   padding: 10px;
   border: 1px solid #ccc;
@@ -51,13 +59,14 @@
   display: flex;
   width: 480px;
   height: 300px;
-  border: 1px solid #000000;
+  border-top:1px solid #dcdcdc; 
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .Styling-info-item-img {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   border: 1px solid #000000;
 }
 
@@ -65,7 +74,8 @@
   display: flex;
   width: 300px;
   height: 50px;
-  border: 1px solid #000000;
+  border-top:1px solid #dcdcdc; 
+  border-bottom: 1px solid #dcdcdc; 
   align-items: center;
 }
 
@@ -77,6 +87,7 @@
 .Styling-info-detail2 {
   display: flex;
   flex-direction: row;
+  margin-top: 5px;
 }
 
 .Styling-info-detail3 {
@@ -88,8 +99,9 @@
 
 .Styling-info-rink{
   display: flex;
-  margin-right: 5px;
+  margin-right: 2px;
 }
+
 
 .Styling-info-detail-name {
   display: flex;
@@ -102,12 +114,20 @@
 
 .Styling-info-item-button {
   display: flex;
-  width: 50px;
+  width: 52px;
   height: 50px;
   justify-content: center;
   align-items: center;
   border: 0px;
   background-color: #ffffff;
+}
+
+.Styling-info-item-label {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 0px;
+  background-color: #000000;
 }
 
 .Styling-info-item-input {
@@ -118,25 +138,58 @@
 
 input[type="checkbox"] {
   display: none;
-  padding: 50px;
 }
 
 input[type="checkbox"] + label {
-  display: inline-block;
+  display: flex;
   width: 50px;
   height: 50px;
   cursor: pointer;
   line-height: 22px;
   padding-left: 22px;
-  background: url("../../../public/img/t10check.png") left / 22px no-repeat;
+  background-image: url("../../../public/img/t10check.png");
 }
 
 input[type="checkbox"]:checked + label {
   background-image: url("../../../public/img/t10checklater.png");
-  width: 100px;
+  width: 50px;
+  height: 50px;
 }
 
 .imgab{
   display: flex;
   z-index: 0;
+}
+
+
+.Styling-jello-horizontal1 {
+	animation: Styling-jello-horizontal1 0.9s both;
+}
+
+@keyframes Styling-jello-horizontal1 {
+  0% {
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.Styling-jjimimg1{
+  display: flex;
 }

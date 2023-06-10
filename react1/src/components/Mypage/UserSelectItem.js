@@ -6,8 +6,9 @@ const UserSelectItem = () => {
   const { product, setProduct } = useContext(ProductContext);
   const [selectedSet, setSelectedSet] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-
-  
+  const [isClicked1, setIsClicked1] = useState(false);
+  const [isClicked2, setIsClicked2] = useState(false);
+  const [isClicked3, setIsClicked3] = useState(false);
 
   const handleReset = () => {
     setProduct([]);
@@ -39,6 +40,7 @@ const UserSelectItem = () => {
   const itemsPerPage = 3;
 
   const pageItems = product.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const filteredProducts = product.filter((product, index) => index % 3 === 0);
 
 
   return (
@@ -53,7 +55,7 @@ const UserSelectItem = () => {
           <table className="UserSelectItem-itemset">
             <td className="UserSelectItem-table-div1" key={index}>
               <div className="UserSelectItem-table-button-wrapper">
-                <button className="UserSelectItem-table-button" onClick={() => handleSetClick(index)}>
+                <button className="UserSelectItem-table-button" onClick={() => handleSetClick((currentPage-1)*itemsPerPage+index)}>
                 <td className="UserSelectItem-abc">
                   <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="상의" width="100%" height="100%"></img>
                   <img className="UserSelectItem-imgmain1" src="/img/logo.png" alt="하의" width="100%" height="100%"></img>
@@ -77,10 +79,30 @@ const UserSelectItem = () => {
                         <img className="UserSelectItem-mainbackone" src="/img/하의로고.PNG" alt="1" width="50%" height="50%"></img>
                         </div>
                       )}
-                      {item.part === "신발" && <img className="UserSelectItem-imgadetail" src={item.image} alt="신발1"></img>}
-                      {item.part === "모자" && <img className="UserSelectItem-imgadetail" src={item.image} alt="모자1"></img>}
-                      {item.part === "아우터" && <img className="UserSelectItem-imgadetail" src={item.image} alt="아우터1"></img>}
-                      {item.part === "악세사리" && <img className="UserSelectItem-imgadetail"src={item.image} alt="악세사리1"></img>}
+                      {item.part === "신발" && (
+                      <div className="UserSelectItem-main1">
+                        <img className="UserSelectItem-imgadetail" src={item.image} alt="상의1"></img>
+                        <img className="UserSelectItem-mainbackone" src="/img/신발로고.PNG" alt="1" width="50%" height="50%"></img>
+                      </div> 
+                      )}
+                      {item.part === "모자" && (
+                      <div className="UserSelectItem-main1">
+                        <img className="UserSelectItem-imgadetail" src={item.image} alt="상의1"></img>
+                        <img className="UserSelectItem-mainbackone" src="/img/모자로고.PNG" alt="1" width="50%" height="50%"></img>
+                      </div> 
+                      )}
+                      {item.part === "아우터" && (
+                      <div className="UserSelectItem-main1">
+                        <img className="UserSelectItem-imgadetail" src={item.image} alt="상의1"></img>
+                        <img className="UserSelectItem-mainbackone" src="/img/아우터로고.PNG" alt="1" width="50%" height="50%"></img>
+                      </div> 
+                      )}
+                      {item.part === "포인트" && (
+                      <div className="UserSelectItem-main1">
+                        <img className="UserSelectItem-imgadetail" src={item.image} alt="상의1"></img>
+                        <img className="UserSelectItem-mainbackone" src="/img/악세사리로고.PNG" alt="1" width="50%" height="50%"></img>
+                      </div> 
+                      )}
                   </td>
                 ))}
                 </td>
@@ -95,10 +117,24 @@ const UserSelectItem = () => {
             </td>
             <td className="UserSelectItem-jjim">
               <td className="UserSelectItem-jjimbuttonwrap" key={index}>
-                <button className="UserSelectItem-jjimbutton" onClick={() => handleScoreIncrease(((currentPage-1)*itemsPerPage+index))}>
+                {(index % 3 === 0) &&
+                <div className="UserSelectItem-jjimbutton1" onClick={() => {handleScoreIncrease((((currentPage-1)*itemsPerPage+index))); setIsClicked1(true);
+                setTimeout(() => {setIsClicked1(false);}, 1000); }} style={{ animation: isClicked1? 'jello-horizontal1 0.9s both' : 'none' }}>
                   <img className="UserSelectItem-jjimimg1"src="/img/jjim.png" alt="모자1" width="30px" height="30px"></img>
-                  <img className="UserSelectItem-jjimimg2"src="/img/1.png" alt="모자1" width="30px" height="30px"></img>
-                </button>
+                </div>
+                }
+                {(index % 3 === 1) &&
+                <div className="UserSelectItem-jjimbutton1" onClick={() => {handleScoreIncrease((((currentPage-1)*itemsPerPage+index))); setIsClicked2(true);
+                setTimeout(() => {setIsClicked2(false);}, 1000); }} style={{ animation: isClicked2? 'jello-horizontal1 0.9s both' : 'none' }}>
+                  <img className="UserSelectItem-jjimimg1"src="/img/jjim.png" alt="모자1" width="30px" height="30px"></img>
+                </div>
+                }
+                {(index % 3 === 2) &&
+                <div className="UserSelectItem-jjimbutton1" onClick={() => {handleScoreIncrease((((currentPage-1)*itemsPerPage+index))); setIsClicked3(true);
+                setTimeout(() => {setIsClicked3(false);}, 1000); }} style={{ animation: isClicked3? 'jello-horizontal1 0.9s both' : 'none' }}>
+                  <img className="UserSelectItem-jjimimg1"src="/img/jjim.png" alt="모자1" width="30px" height="30px"></img>
+                </div>
+                }
               </td>
               <td className="UserSelectItem-jjimnumber">
                 {users.score}

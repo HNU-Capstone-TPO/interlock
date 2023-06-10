@@ -97,7 +97,7 @@ const Home = () => {
                 <div className="input-container" style={{ display: "flex", justifyContent: "space-between"}}>
                 <div className="input">
                   <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton} getSave={getSave}/>
-                </div>
+                </div >
                 
                 <Guide />
                 </div>
