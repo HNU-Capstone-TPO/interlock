@@ -1,21 +1,18 @@
 import {useState, useEffect} from 'react'
 import Button from '@mui/material/Button';
-import { useContext } from "react";
-import { SaveContext } from "../../contexts/SaveContext";
 import "./Input.css";
 
 
 
-const Input = ({setTags, onSubmit, tags, button, setButton}) => {
-    const [input, setInput] = useState('');
-    const [start, setStart] = useState(0);
-    const [check, setCheck] = useState(false); 
-    const [isDisabled, setIsDisabled] = useState(false);
-    //const [button, setButton] = useState('');
-    const [btnActive, setBtnActive] = useState();
+const Input = ({setTags, onSubmit, tags, button, setButton, setQuery}) => {
+  const [input, setInput] = useState('');
+  const [start, setStart] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(false);
+  //const [button, setButton] = useState('');
+  const [btnActive, setBtnActive] = useState();
 
 
-    var newTag = null;
+  var newTag = null;
     let btn = ['Newbie', 'Expert', 'Search'];
 
     const toggleActive = (e) => {
@@ -25,33 +22,22 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
         });
       };
       useEffect(() => {
-        console.log(`Button: ${btnActive}`);
+        console.log(`Buttonactive: ${btnActive}`);
       }, [btnActive]);
-    /*
-    const removeTag = (tag) => {
-      setTags(prevTags => prevTags.filter((t) => t !== tag))
-    }
-    */
+      
     useEffect(()=>{
       //성별 감지->버튼 활성화
-      if(input.includes("공용")||input.includes("남자")||input.includes("여자")){
-        setCheck(true);
+      if(input.includes("공용")||input.includes("남성")||input.includes("여성")||button==="S"){
         setIsDisabled(true);
-        console.log("감지");
-        console.log(btnActive);
+        console.log("감지", input);
       }
-      /*입력 수정
-      for(let tag of tags){
-        if(!input.includes(tag)&&tags.length!==0){
-          removeTag(tag);
-          console.log("태그", tag);
-          console.log("태그들", tags);
-        }
-      }
-      */
-    },[input])
-
+      else if((button==="N"||button==="E")&&(!(input.includes("남성")||input.includes("여성")||input.includes("공용")))){
+        setIsDisabled(false);
+        console.log("감지 풀림", input);
+      } 
+    },[input, button])
     const handleOnKeyPress = async (e) => {
+      
       if (e.key === "Enter" || e.key === " ") {
         console.log("before:" + start);
         newTag = input.substr(start, input.length).trim();
@@ -61,15 +47,14 @@ const Input = ({setTags, onSubmit, tags, button, setButton}) => {
         await setTags([...tags, newTag]);
         
         setStart(input.length);
-        
-        /*if (callback) {
-          callback();
-        }*/
+
       }
     };
-      
     const handleSubmit = async (e) => {
-      await handleOnKeyPress({ key: " " });
+      /*await handleOnKeyPress({ key: " " });*/
+      
+      const tagArray = input.split(" ");
+      setQuery(tagArray);
       onSubmit();
     };
 

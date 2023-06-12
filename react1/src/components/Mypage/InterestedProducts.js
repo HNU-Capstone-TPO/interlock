@@ -86,7 +86,7 @@ const InterestedProducts = () => {
                       <img className="interested-mainbacktwo" src="/img/아우터로고.PNG" alt="1" width="50%" height="50%"></img>
                     </div>
                   )}
-                  {user.part === "악세사리" && (
+                  {user.part === "포인트" && (
                     <div className="interested-main">
                       <button className="interested-mainback1" onClick={() => window.open(user.rink, '_blank')}>{user.name}</button>
                       <img src={user.image} alt="6000" width="100%" height="100%"></img> 
@@ -143,9 +143,9 @@ const InterestedProducts = () => {
                       <img className="interested-mainbackone" src="/img/아우터로고.PNG" alt="1" width="50%" height="50%"></img>
                     </div>
                     )}
-                    {item.part === "악세사리" && (
+                    {item.part === "포인트" && (
                     <div className="interested-main1">
-                      <img src={item.image} alt="악세사리" width="100%" height="100%"></img>
+                      <img src={item.image} alt="포인트" width="100%" height="100%"></img>
                       <img className="interested-mainbackone" src="/img/악세사리로고.PNG" alt="1" width="50%" height="50%"></img>
                     </div>
                     )}

@@ -7,13 +7,14 @@ import os
 
 def add_users(apps, schema_editor):
     User = apps.get_model('users', 'User')
-    # os.path.expanduser("~/Desktop/cl_data.csv")
     csv_file = "C:/Users/wodkv/Desktop/pro/r_data.csv"
     with open(csv_file, 'r') as f:
         reader = csv.reader(f)
         for row in reader:
+            age_values = row[13].split(',') if row[13] else []
+            age = [int(value) for value in age_values]
             user = User(
-                id=row[0],
+                id=int(row[0]),
                 name=row[1],
                 rink=row[2],
                 image=row[3],
@@ -23,15 +24,17 @@ def add_users(apps, schema_editor):
                 part=row[7],
                 season=row[8].split(','),
                 brand=row[9].split(','),
-                price=row[10],
+                price=int(row[10]),
                 tag=row[11].split(','),
-                youtube=row[12],
-                blog=row[13],
-                y_name=row[14],
-                b_name=row[15],
-                score=row[16]
+                situation=row[12].split(','),
+                age=age,
+                youtube=row[14],
+                blog=row[15],
+                y_name=row[16],
+                b_name=row[17],
+                score=int(row[18])
             )
-            user.full_clean()  # 데이터 유효성 검사
+            user.full_clean()
             user.save()
 
 

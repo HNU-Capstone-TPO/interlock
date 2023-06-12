@@ -48,9 +48,6 @@ const Signup= () => {
             <TextField 
             style={{ marginBottom: "-30px", width: "400px" }}
              id="rePassword" type="password" label="비밀번호 확인" onChange={(e) => setRePassword(e.target.value)}/>
-            <TextField 
-            style={{ width: "400px" }}
-            id="nickname" label="닉네임" />
           
             <div className="bottom-part" style={{ width: "100%",display: "flex", justifyContent: "flex-end"}}>
             <button onClick={handleSignup} style={{ border: "none", borderRadius: "5px", backgroundColor: "#4242e6", color: "white", width: "100px"}}>Sign Up</button>

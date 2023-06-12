@@ -72,6 +72,7 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 
   return (
     <table className="Styling-info-box">
+      <button onClick={handleReset}>AAAA</button>
        {pageItems.length > 0 ? pageItems.map((user, index) =>
       user && (
         <td className="Styling-info-item" key={user.id}>

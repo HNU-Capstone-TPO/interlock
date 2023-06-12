@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Nav, NavItem, LogoWrapper, RightItems } from './NavbarStyles2';
-import { AuthContext } from "../../contexts/LoggendIn";
+import { AuthContext } from "../../contexts/LoggedIn";
 
 const Navbar2 = () => {
 

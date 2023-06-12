@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../contexts/LoggendIn"
+import { AuthContext } from "../contexts/LoggedIn"
 import TextField from '@mui/material/TextField';
 
 const Login = () => {

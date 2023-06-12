@@ -10,13 +10,22 @@ const Favorites = () => {
     setUsers([]);
   };
 
-  const handleDeleteClick = (id) => {
+  const handleDeleteClick = (index) => {
+    setUsers((prevUsers) => {
+      const newUsers = [...prevUsers]; // id로 비교해서 같은 id인것들을 제거
+      newUsers.splice(index, 1);
+      localStorage.setItem("users", JSON.stringify(newUsers)); // 로컬 스토리지에 저장
+      return newUsers;
+    });
+  };
+
+  {/*const handleDeleteClick = (id) => {
     setUsers((prevUsers) => {
       const newUsers = prevUsers.filter((user) => user.id!== id); // id로 비교해서 같은 id인것들을 제거
       localStorage.setItem("users", JSON.stringify(newUsers)); // 로컬 스토리지에 저장
       return newUsers;
     });
-  };
+  };*/}
 
   const handlePrevClick = () => {
     setCurrentPage(currentPage - 1);
@@ -41,8 +50,8 @@ const Favorites = () => {
           </td>
         </h2>
         <tbody>
-          {pageItems.map((user) => (
-            <tr className="favorites-my-div2" key={user.id}>
+          {pageItems.map((user, index) => (
+            <tr className="favorites-my-div2" key={index}>
               <td className="favorites-keyward">
                 <td className="favorites-keywarda">
                   <img src={user.image} alt={user.image} width="120px" height="120px"></img>
@@ -64,7 +73,7 @@ const Favorites = () => {
                       <img src="/img/jiimrink2.png" alt="awsdf" width="30px" height="30px"></img>
                     </a>
                     </td>
-                  <button className="Favorites-img" onClick={() => handleDeleteClick(user.id)}>
+                  <button className="Favorites-img" onClick={() => handleDeleteClick(index)}>
                     <img src="/img/Timelinedelete.png" alt="awsdf" width="20px" height="20px"></img>
                   </button>
                 </td>

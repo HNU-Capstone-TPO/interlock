@@ -18,7 +18,6 @@ const Home = () => {
     const [submitFlag, setSubmitFlag] = useState(false);
     const [button, setButton] = useState('');
     const {save, setSave} = useContext(SaveContext);
-    //const [users, setUsers] = useState([]);
     const navigate = useNavigate();
 
 
@@ -47,7 +46,7 @@ const Home = () => {
     }, []);
 
     const getSave = () => {
-      const newSave = [tags, ...save];
+      const newSave = [query, ...save];
       setSave(newSave);
       saveToLocalStorage("save", newSave);
     };
@@ -55,10 +54,11 @@ const Home = () => {
     useEffect(() => {
       if (submitFlag) {
         const formData = new FormData();
-        formData.append("query", tags);
+        formData.append("query", query);
         formData.append("button", button);
-        console.log('보내는 태그', tags);
-        getSave(tags);
+        console.log('보내는 태그', query);
+        console.log('보내는 태그2', tags);
+        getSave(query);
         axios
           .post("http://127.0.0.1:8000/search/", formData, {
             headers: { "Content-Type": "multipart/form-data" },
@@ -95,7 +95,7 @@ const Home = () => {
                 <div className="helper" style={{marginBottom: "20px"}} ><Helper tags={tags}/></div>
                 <div className="input-container" style={{ display: "flex", justifyContent: "space-between"}}>
                 <div className="input">
-                  <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton}/>
+                  <Input onSubmit={handleSubmit} setTags={setTags} tags={tags} button={button} setButton={setButton} setQuery={setQuery}/>
                 </div >
                 
                 <Guide />

@@ -27,7 +27,6 @@ const Helper = ({tags}) => {
                 if (tags.includes(tagList[2])) {
                     setHelpMessage(helpList[3]);
                     setCheck1(false);
-                    
                     break;
                 }
             }
@@ -35,32 +34,6 @@ const Helper = ({tags}) => {
         setTimeout(() => {setHelpMessage("")}, 5000);
     }, [tags, check1, check2]);
 
-    /*var helpMessage = "";
-    var i;
-    
-
-    if(Array.isArray(tags)&&tags.length===0){
-        helpMessage=helpList[0];
-        console.log(helpMessage)
-    }
-    else if(tags.length!==0&&check2){
-        helpMessage=helpList[1];
-        setCheck2(false);
-        console.log("check2")
-        console.log(helpMessage)
-    }
-    else if(tags.length!==0&&check1){
-        for(i =0; i<tags.length; i++){
-            if(tags.includes(tagList[2])){
-                helpMessage=helpList[3];
-                console.log("검은색 포함");
-                setCheck1(false);
-                console.log(helpMessage)
-                break;
-            }
-        }
-    }
-*/
     return (
         <div>
             <Box 

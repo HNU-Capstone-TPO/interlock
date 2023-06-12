@@ -5,3 +5,16 @@
     height: 75px;
     font-size:30px;
 }
+
+.myinfo-button{
+    display: flex;
+    position: absolute;
+    width: 50px;
+    top: 620px;
+    left: 700px;
+}
+
+.myinfo-width{
+    display: flex;
+    width: 100px;
+}

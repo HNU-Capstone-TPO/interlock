@@ -12,7 +12,7 @@ import { SaveProvider } from "./contexts/SaveContext";
 import { SaveItemContextProvider } from "./contexts/SaveItem";
 import { SaveRecommendContextProvider} from './contexts/SaveRecommend';
 import { ProductContextProvider } from "./contexts/Product";
-import { AuthProvider } from "./contexts/LoggendIn";
+import { AuthProvider } from "./contexts/LoggedIn";
 
 const App = () => {
   return (
