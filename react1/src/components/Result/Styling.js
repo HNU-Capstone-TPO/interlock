@@ -72,7 +72,6 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
 
   return (
     <table className="Styling-info-box">
-      <button onClick={handleReset}>AAAA</button>
        {pageItems.length > 0 ? pageItems.map((user, index) =>
       user && (
         <td className="Styling-info-item" key={user.id}>
@@ -157,13 +156,13 @@ const InfoBox = ({ users, setSelectedProduct, index }) => {
        ) : <td style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: "30px"}}>상품 없음</td>}
 
        {pageItems.length > 0 &&
-      <td className="UserSelectItem-pagination">
-        <button className="UserSelectItem-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
-        <img className="UserSelectItem-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
+      <td className="Styling-pagination">
+        <button className="Styling-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
+        <img className="Styling-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
         </button>
-        <td className="UserSelectItem-pagination-number">{currentPage}</td>
-        <button className="UserSelectItem-pagination-click" onClick={handleNextClick} disabled={(users.length < (currentPage * itemsPerPage)+1)}>
-        <img className="UserSelectItem-pagination-animation" src="/img/right.png" alt="awsdf2" width="30px" height="30px"></img>
+        <td className="Styling-pagination-number">{currentPage}</td>
+        <button className="Styling-pagination-click" onClick={handleNextClick} disabled={(users.length < (currentPage * itemsPerPage)+1)}>
+        <img className="Styling-pagination-animation" src="/img/right.png" alt="awsdf2" width="30px" height="30px"></img>
         </button>
       </td>
       }

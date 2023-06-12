@@ -13,11 +13,19 @@ import { SaveItemContextProvider } from "./contexts/SaveItem";
 import { SaveRecommendContextProvider} from './contexts/SaveRecommend';
 import { ProductContextProvider } from "./contexts/Product";
 import { AuthProvider } from "./contexts/LoggedIn";
+import { SignupContextProvider } from "./contexts/SaveSignup";
+import { IdProvider } from './contexts/Id';
+import { SaveidContextProvider } from './contexts/SaveId';
 
 const App = () => {
   return (
+
     <AuthProvider>
     <SaveProvider>
+    
+    <SignupContextProvider>
+      <SaveidContextProvider>
+      <IdProvider>
       <SaveItemContextProvider>
         <SaveRecommendContextProvider>
           <ProductContextProvider>
@@ -37,9 +45,13 @@ const App = () => {
           </ProductContextProvider>
         </SaveRecommendContextProvider>
       </SaveItemContextProvider>
+      </IdProvider> 
+      </SaveidContextProvider>
+    </SignupContextProvider>
+    
     </SaveProvider>
-
     </AuthProvider>
+
 
 
   );

@@ -49,13 +49,13 @@ const Result = () => {
                     </td>
                 ))}
             </td>
-            <td className="UserSelectItem-pagination">
-                        <button className="UserSelectItem-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
-                        <img className="UserSelectItem-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
+            <td className="Result-pagination">
+                        <button className="Result-pagination-click" onClick={handlePrevClick} disabled={currentPage === 1}>
+                        <img className="Result-pagination-animation" src="/img/left.png" alt="awsdf" width="30px" height="30px"></img>
                         </button>
-                        <td className="UserSelectItem-pagination-number">{currentPage}</td>
-                        <button className="UserSelectItem-pagination-click" onClick={handleNextClick} disabled={(users.length < (currentPage * itemsPerPage)+1)}>
-                        <img className="UserSelectItem-pagination-animation" src="/img/right.png" alt="awsdf" width="30px" height="30px"></img>
+                        <td className="Result-pagination-number">{currentPage}</td>
+                        <button className="Result-pagination-click" onClick={handleNextClick} disabled={(users.length < (currentPage * itemsPerPage)+1)}>
+                        <img className="Result-pagination-animation" src="/img/right.png" alt="awsdf" width="30px" height="30px"></img>
                         </button>
                     </td>
             <div style={{ marginTop: "30px", height: '1px', width: "250px", backgroundColor: 'black', opacity: 0.5 }} /> 

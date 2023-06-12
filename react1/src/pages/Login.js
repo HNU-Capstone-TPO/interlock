@@ -2,40 +2,83 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/LoggedIn"
+import { IdContext } from "../contexts/Id";
+import { SignupContext } from "../contexts/SaveSignup";
 import TextField from '@mui/material/TextField';
+import { SaveidContext } from "../contexts/SaveId";
 
 const Login = () => {
-  const [user, setUser] = useState({ id: "", password: "" });
+  const [user1, setUser1] = useState({ id: "", password: "" });
   const [stage, setStage] = useState(1);
+  const { saveid, setSaveid} = useContext(SaveidContext);
+  const [a, setA] = useState(0);
+  const [b, setB] = useState("");
   const authContext = useContext(AuthContext);
-  const isLoggedIn = authContext.isLoggedIn;
   const setIsLoggedIn = authContext.toggleLogin;
+  const { id, setId } = useContext(IdContext);
+  const { userid, setUserid} = useState("");
+  const { signup } = useContext(SignupContext);
+  var index;
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+  const reset = () => {
+    setSaveid([]);
+  }
 
+  {/*const handleSave = () => {
+    setId((prevId) => {
+      const newId = [...prevId, {id: user1.id}];
+      return newId;
+    })
+  }*/}
+
+  
+
+  const handleLogin = () => {
+
+    const storedUser = JSON.parse(localStorage.getItem("signup"));
+    console.log(storedUser)
+
+    const handleSaveid = () => {
+      setSaveid(() => {
+        const newSaveid = [ b ];
+        return newSaveid;
+      });
+    };
+    
+    
     if (stage === 1) {
-      if (user.id === storedUser.id) {
-        setStage(2);
-      } else {
-        alert("아이디가 잘못되었습니다.");
+      for (var i = 0; i < storedUser.length; i++) {
+        if (user1.id === storedUser[i].id1) {
+          setStage(2);
+          index = i;
+          setA(index);
+          setB(user1.id);
+          console.log(user1.id)
+          break;
+        } else if (i===storedUser.length-1){
+          alert("아이디가 잘못되었습니다.");
+        }
       }
     } else {
-      if (user.password === storedUser.password) {
+      if (user1.password === storedUser[a].password1) {
         alert("로그인 성공!");
-        setIsLoggedIn(true);
+        setIsLoggedIn();
+        handleSaveid();
         navigate("/");
       } else {
         alert("비밀번호가 잘못되었습니다.");
       }
     }
+  
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser((prevUser) => ({ ...prevUser, [name]: value }));
+    setUser1((prevUser1) => ({ ...prevUser1, [name]: value }));
   };
+
+  
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100vh" }}>
@@ -63,7 +106,7 @@ const Login = () => {
                 name="id" 
                 label="아이디" 
                 variant="standard"
-                value={user.id}
+                value={user1.id}
                 onChange={handleChange}/>
               </>
             )}
@@ -78,7 +121,7 @@ const Login = () => {
                 label="비밀번호" 
                 type="password"
                 variant="standard"
-                value={user.password}
+                value={user1.password}
                 onChange={handleChange}  />
               </>
             )}

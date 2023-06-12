@@ -27,11 +27,11 @@ const Input = ({setTags, onSubmit, tags, button, setButton, setQuery}) => {
       
     useEffect(()=>{
       //성별 감지->버튼 활성화
-      if(input.includes("공용")||input.includes("남성")||input.includes("여성")||button==="S"){
+      if(input.includes("공용")||input.includes("남성")||input.includes("여성")||input.includes("여자")||input.includes("남자")||input.includes("커플")||button==="S"){
         setIsDisabled(true);
         console.log("감지", input);
       }
-      else if((button==="N"||button==="E")&&(!(input.includes("남성")||input.includes("여성")||input.includes("공용")))){
+      else if((button==="N"||button==="E")&&(!(input.includes("공용")||input.includes("남성")||input.includes("여성")||input.includes("여자")||input.includes("남자")||input.includes("커플")))){
         setIsDisabled(false);
         console.log("감지 풀림", input);
       } 

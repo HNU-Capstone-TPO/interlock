@@ -16,7 +16,7 @@ const Home = () => {
     const [tags, setTags] = useState([]);
     const [query, setQuery] = useState([]);
     const [submitFlag, setSubmitFlag] = useState(false);
-    const [button, setButton] = useState('');
+    const [button, setButton] = useState('N');
     const {save, setSave} = useContext(SaveContext);
     const navigate = useNavigate();
 
